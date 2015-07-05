@@ -1,0 +1,30 @@
+.container.view-container {
+	margin-top: 50px;
+}
+
+.glyphicon.glyphicon-heart {
+	color: red;
+}
+
+.jumbotron {
+	margin-top: 20px;
+}
+
+.things-we-love a {
+	display: block;
+	padding: 5px 0px 5px 0px;
+	text-decoration: none;
+}
+
+.contact-info, .things-we-love {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.contact-info {
+	margin-top: 30px;	
+}
+
+.contact-info a {
+	text-decoration: none;
+}

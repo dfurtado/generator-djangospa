@@ -1,0 +1,34 @@
+{
+  "name": "generator-djangospa",
+  "version": "0.1.0",
+  "description": "Django single page application for Yeoman",
+  "keywords": [
+    "yeoman-generator",
+    "django",
+    "python",
+    "yeoman",
+    "angular",
+    "bootstrap"
+  ],
+  "homepage": "https://github.com/dfurtado/generator-djangospa",
+  "bugs": "https://github.com/dfurtado/generator-djangospa/issues",
+  "author": {
+    "name": "Daniel Furtado",
+    "email": "daniel@dfurtado.com",
+    "url": "https://github.com/dfurtado"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dfurtado/generator-djangospa.git"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "randomstring": "^1.0.3",
+    "yeoman-generator": "^0.17.7",
+    "yosay": "^1.0.4"
+  }
+}

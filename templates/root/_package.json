@@ -1,0 +1,9 @@
+{
+  "name": "<%= projectName %>",
+  "version": "1.0.0",
+  "description": "<%= projectDescription %>",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-copy": "^0.8.0"
+  }
+}
