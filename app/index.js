@@ -15,7 +15,7 @@ var Generator = module.exports = generators.Base.extend({
 		      	bower: true,
 		      	npm: true,
 		      	callback: function() {
-	    			this.spawnCommand('grunt');		      		
+	    			this.spawnCommand('grunt');
 		      	}.bind(this)
 	    	});
   		});
@@ -52,12 +52,17 @@ Generator.prototype.PromptUser = function() {
 	   	name    : 'appname',
 	   	message : 'Initial application name',
 	   	required: true
-	}], function (answers) {
-	    
+	}, {
+      type    : 'confirm',
+      name    : 'includelogin',
+      message : 'Include login page?'
+  }], function (answers) {
+
 	   	this.projectName = answers.projectname;
 	   	this.projectDescription = answers.description || "";
 	   	this.appName = answers.appname;
- 
+      this.includeLoginPage = answers.includelogin;
+
     	this.destinationRoot(path.join(this.destinationRoot(), "/" + this.projectName))
       	done();
 
@@ -80,16 +85,16 @@ Generator.prototype.copyFiles = function() {
 		secret_key: this.secret_key
 	};
 
-	// copy static folder, it is where all the javascript, css, fonts 
+	// copy static folder, it is where all the javascript, css, fonts
 	// images will be placed.
 	this.directory(
-		path.join(this.sourceRoot(), "/static"), 
+		path.join(this.sourceRoot(), "/static"),
 		path.join(this.destinationRoot(), "/static"));
 
 	// folder that cointains all the command templates, they will
 	// be used as base template for the app templates.
 	this.directory(
-		path.join(this.sourceRoot(), "/templates"), 
+		path.join(this.sourceRoot(), "/templates"),
 		path.join(this.destinationRoot(), "/templates"));
 
 	// copying the default application files.
@@ -100,20 +105,20 @@ Generator.prototype.copyFiles = function() {
 	this.copy(
 		path.join(this.sourceRoot(), "/main/admin.py"),
 		path.join(this.destinationRoot(), "/" + this.appName + "/admin.py"));
-	
+
 	this.copy(
 		path.join(this.sourceRoot(), "/main/models.py"),
 		path.join(this.destinationRoot(), "/" + this.appName + "/models.py"));
-	
+
 	this.copy(
 		path.join(this.sourceRoot(), "/main/tests.py"),
 		path.join(this.destinationRoot(), "/" + this.appName + "/tests.py"));
-	
+
 	this.template(
 		path.join(this.sourceRoot(), "/main/views.py"),
 		path.join(this.destinationRoot(), "/" + this.appName + "/views.py"),
 		templateModel);
-	
+
 	this.copy(
 		path.join(this.sourceRoot(), "/main/templates/main/index.html"),
 		path.join(this.destinationRoot(), "/" + this.appName + "/templates/" + this.appName + "/index.html"));
@@ -123,19 +128,19 @@ Generator.prototype.copyFiles = function() {
 		path.join(this.destinationRoot(), "/" + this.appName + "/migrations"));
 
 	this.copy(
-		path.join(this.sourceRoot(), "/Gruntfile.js"), 
+		path.join(this.sourceRoot(), "/Gruntfile.js"),
 		path.join(this.destinationRoot(), "/Gruntfile.js"));
 
 	this.copy(
-		path.join(this.sourceRoot(), "/appfiles/__init__.py"), 
+		path.join(this.sourceRoot(), "/appfiles/__init__.py"),
 		destAppRoot + "/__init__.py");
 
 	this.copy(
-		path.join(this.sourceRoot(), "/appfiles/wsgi.py"), 
+		path.join(this.sourceRoot(), "/appfiles/wsgi.py"),
 		destAppRoot + "/wsgi.py");
 
 	this.template(
-		path.join(this.sourceRoot(), "/appfiles/urls.py"), 
+		path.join(this.sourceRoot(), "/appfiles/urls.py"),
 		destAppRoot + "/urls.py",
 		templateModel);
 
@@ -145,8 +150,8 @@ Generator.prototype.copyFiles = function() {
 		templateModel);
 
 	this.template(
-		path.join(this.sourceRoot(), "/_manage.py"), 
-		path.join(dest, "/manage.py"), 
+		path.join(this.sourceRoot(), "/_manage.py"),
+		path.join(dest, "/manage.py"),
 		templateModel);
 
 };
@@ -163,14 +168,14 @@ Generator.prototype.packageFiles = function packageFiles() {
 		projectDescription: this.projectDescription,
 		appName: this.appName
 	};
-	
+
 	this.template(
-		path.join(this.sourceRoot(), "/_bower.json"), 
-		path.join(dest, "/bower.json"), 
-		templateModel);  
-  	
+		path.join(this.sourceRoot(), "/_bower.json"),
+		path.join(dest, "/bower.json"),
+		templateModel);
+
   	this.template(
-  		path.join(this.sourceRoot(), "/_package.json"), 
-  		path.join(dest, "/package.json"), 
+  		path.join(this.sourceRoot(), "/_package.json"),
+  		path.join(dest, "/package.json"),
   		templateModel);
 };
