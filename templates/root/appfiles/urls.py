@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url, patterns
 from django.contrib import admin
-from <% appName %>.forms import AuthenticationForm
+from <%= appName %>.forms import AuthenticationForm
 
 urlpatterns = patterns('',
 	url(r'^$', '<%= appName %>.views.index', name="index"),
