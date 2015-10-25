@@ -45,6 +45,9 @@
             <li ng-class="{active: currentView == '/contact' }"><a href="#/contact">Contact</a></li>
             {% endverbatim %}
           </ul>
+          <% if (includeLoginPage == true) { %>
+            {% include 'loginpartial.html' %}
+          <% } %>
         </div><!--/.nav-collapse -->
       </div>
     </nav>

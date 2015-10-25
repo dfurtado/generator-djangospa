@@ -29,7 +29,7 @@ var Generator = module.exports = generators.Base.extend({
 });
 
 Generator.prototype.Greetings = function() {
-	console.log(yosay("Welcome to the single page application generator for Django."));
+	console.log(yosay("Welcome to the (awesome) single page application generator for Django."));
 }
 
 Generator.prototype.PromptUser = function() {
@@ -54,16 +54,17 @@ Generator.prototype.PromptUser = function() {
 	   	required: true
 	}, {
       type    : 'confirm',
-      name    : 'includelogin',
+      name    : 'includeloginpage',
       message : 'Include login page?'
   }], function (answers) {
 
 	   	this.projectName = answers.projectname;
 	   	this.projectDescription = answers.description || "";
 	   	this.appName = answers.appname;
-      this.includeLoginPage = answers.includelogin;
+	    this.includeLoginPage = answers.includeloginpage;
 
     	this.destinationRoot(path.join(this.destinationRoot(), "/" + this.projectName))
+
       	done();
 
     }.bind(this));
@@ -82,6 +83,7 @@ Generator.prototype.copyFiles = function() {
 		projectName: this.projectName,
 		projectDescription: this.projectDescription,
 		appName: this.appName,
+		includeLoginPage: this.includeLoginPage,
 		secret_key: this.secret_key
 	};
 
@@ -91,11 +93,20 @@ Generator.prototype.copyFiles = function() {
 		path.join(this.sourceRoot(), "/static"),
 		path.join(this.destinationRoot(), "/static"));
 
-	// folder that cointains all the command templates, they will
-	// be used as base template for the app templates.
-	this.directory(
-		path.join(this.sourceRoot(), "/templates"),
-		path.join(this.destinationRoot(), "/templates"));
+	this.copy(
+		path.join(this.sourceRoot(), "/templates/base.html"),
+		path.join(this.destinationRoot(), "/templates/base.html"),
+		templateModel);
+
+	if(this.includeLoginPage) {
+		this.copy(
+			path.join(this.sourceRoot(), "/templates/login.html"),
+			path.join(this.destinationRoot(), "/templates/login.html"));
+
+		this.copy(
+			path.join(this.sourceRoot(), "/templates/_loginpartial.html"),		
+			path.join(this.destinationRoot(), "/templates/_loginpartial.html"));
+	}
 
 	// copying the default application files.
 	this.copy(
@@ -113,6 +124,12 @@ Generator.prototype.copyFiles = function() {
 	this.copy(
 		path.join(this.sourceRoot(), "/main/tests.py"),
 		path.join(this.destinationRoot(), "/" + this.appName + "/tests.py"));
+
+	if(this.includeLoginPage) {
+		this.copy(
+			path.join(this.sourceRoot(), "/main/forms.py"),
+			path.join(this.destinationRoot(), "/" + this.appName + "/forms.py"));
+	}
 
 	this.template(
 		path.join(this.sourceRoot(), "/main/views.py"),
