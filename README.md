@@ -22,8 +22,14 @@ Activate the environment:
 Install Django 1.8.0 or later:
 
 
-	$ pip install django==1.8.2
+	$ pip install django
+	
+	
+Install Django REST Framework
 
+
+	$ pip install djangorestframework
+	
 
 Install the django single page app generator
 
@@ -54,3 +60,4 @@ Access your application at `http://127.0.0.1:8000`
 -
 
 **Developed with :heart: by Daniel Furtado in Stockholm, Sweden.**
+**Added to with :heart: by Pete LoGiudice in New Orleans, Louisiana, USA. **
