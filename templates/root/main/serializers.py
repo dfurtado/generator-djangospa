@@ -10,7 +10,7 @@ class SampleSerializer(serializers.HyperlinkedModelSerializer):
 		fields = ('id', 'created', 'name', 'img_name', 'url', 'owner', 'info')
 		
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-	clownfish = serializers.HyperlinkedRelatedField(many=True, view_name='sample-detail', read_only=True)
+	sample = serializers.HyperlinkedRelatedField(many=True, view_name='sample-detail', read_only=True)
 
 	class Meta:
 		model = User
