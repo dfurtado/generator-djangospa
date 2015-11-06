@@ -1,16 +1,10 @@
 <h1>{{contact.header}}</h1>
 
-<div class="contact-info">
+<div class="contact-info" ng-repeat="contact in contact.contacts">
 	<p>
-		Project's website: 
-		<a href="https://github.com/dfurtado/generator-djangospa">
-			https://github.com/dfurtado/generator-djangospa
+		{{contact.name}}: 
+		<a href="{{contact.url}}">
+			{{contact.url}}
 		</a>
-	</p>
-	<p>
-		Bug reporting:
-		<a href="https://github.com/dfurtado/generator-djangospa/issues">
-			https://github.com/dfurtado/generator-djangospa/issues
-		</a>
-	</p>
+	</p>	
 </div>
