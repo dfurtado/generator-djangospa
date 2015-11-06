@@ -6,16 +6,20 @@
 		$routeProvider
 			.when("/", {
 				templateUrl: '/static/view_templates/index.html',
-				controller: 'mainController'
+				controller: 'mainController',
+				controllerAs: 'main'
 			})
 			.when("/about", {
 				templateUrl: '/static/view_templates/about.html',
-				controller: 'aboutController'
+				controller: 'aboutController',
+				controllerAs: 'about'
 			})
 			.when("/contact", {
 				templateUrl: '/static/view_templates/contact.html',
-				controller: 'contactController'
-			});
+				controller: 'contactController',
+				controllerAs: 'contact'
+			})
+			.otherwise({ redirectTo: '/' });
 	};
 
 	var onRun = function($rootScope, $location) {
@@ -24,16 +28,16 @@
 		});
 	};
 
-	var mainController = function($scope, $route) {
-		$scope.header = "Hello, Django!"	
+	var mainController = function($route) {
+		this.header = "Hello, Django!"	
 	};
 
-	var aboutController = function($scope) {
-		$scope.header = "About"
+	var aboutController = function() {
+		this.header = "About"
 	};
 
-	var contactController = function($scope) {
-		$scope.header = "Contact"
+	var contactController = function() {
+		this.header = "Contact"
 	};
 
 	angular.module("mainModule", ["ngRoute"])	

@@ -22,8 +22,14 @@ Activate the environment:
 Install Django 1.8.0 or later:
 
 
-	$ pip install django==1.8.2
+	$ pip install django
+	
+	
+Install Django REST Framework
 
+
+	$ pip install djangorestframework
+	
 
 Install the django single page app generator
 
