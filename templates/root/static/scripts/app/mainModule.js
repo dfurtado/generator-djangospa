@@ -16,7 +16,7 @@
 			})
 			.when("/contact", {
 				templateUrl: '/static/view_templates/contact.html',
-				controller: 'contactController'
+				controller: 'contactController',
 				controllerAs: 'contact'
 			})
 			.otherwise({ redirectTo: '/' });

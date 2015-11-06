@@ -18,7 +18,8 @@ from django.contrib import admin
 from <%= appName %>.forms import AuthenticationForm
 
 urlpatterns = patterns('',
-	url(r'^$', '<%= appName %>.views.index', name="index"),
+    url(r'^$', '<%= appName %>.views.index', name="index"),
+    url(r'^', include('<%= appName %>.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 
