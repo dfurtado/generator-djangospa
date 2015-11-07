@@ -34,17 +34,20 @@
 		this.url = "https://github.com/dfurtado/generator-djangospa"
 		this.project = "generator-djangospa"
 		this.items = [
-			{ "heading": "Heading 1",
-			  "description": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
-			  "button": "Learn more \u00bb"
+			{
+				"heading": "Heading 1",
+				"description": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+				"button": "Learn more \u00bb"
 			},
-			{ "heading": "Heading 2",
-			  "description": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
-			  "button": "Learn more \u00bb"
+			{
+				"heading": "Heading 2",
+				"description": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+				"button": "Learn more \u00bb"
 			},
-			{ "heading": "Heading 3",
-			  "description": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
-			  "button": "View details \u00bb"
+			{
+				"heading": "Heading 3",
+				"description": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+				"button": "View details \u00bb"
 			}
 		]
 	};
@@ -53,23 +56,39 @@
 		this.header = "About"
 		this.message = "Learn all about the awesome stuff we "
 		this.things = [
-			{ "url": "https://www.djangoproject.com/", 
-			  "name": "Django" },
-			{ "url": "http://www.django-rest-framework.org/", 
-			  "name": "Django REST framework"},
-			{ "url": "http://getbootstrap.com/", 
-			  "name": "Bootstrap" },
-			{ "url": "https://angularjs.org/", 
-			  "name": "Angular JS" },
-			{ "url": "http://yeoman.io/", 
-			  "name": "Yeoman" },
-			{ "url": "https://jquery.com/", 
-			  "name": "Jquery" },
-			{ "url": "http://bower.io/", 
-			  "name": "Bower" },
-			{ "url": "http://gruntjs.com/", 
-			  "name": "Grunt" }
-		]
+    {
+        "url": "https://www.djangoproject.com/",
+        "name": "Django"
+    },
+    {
+        "url": "http://www.django-rest-framework.org/",
+        "name": "Django REST framework"
+    },
+    {
+        "url": "http://getbootstrap.com/",
+        "name": "Bootstrap"
+    },
+    {
+        "url": "https://angularjs.org/",
+        "name": "Angular JS"
+    },
+    {
+        "url": "http://yeoman.io/",
+        "name": "Yeoman"
+    },
+    {
+        "url": "https://jquery.com/",
+        "name": "Jquery"
+    },
+    {
+        "url": "http://bower.io/",
+        "name": "Bower"
+    },
+    {
+        "url": "http://gruntjs.com/",
+        "name": "Grunt"
+    }
+]
 	};
 
 	var contactController = function() {
