@@ -27,8 +27,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "randomstring": "^1.0.3",
-    "yeoman-generator": "^0.17.7",
-    "yosay": "^1.0.4"
+    "randomstring": "^1.1.2",
+    "yeoman-generator": "^0.21.1",
+    "yosay": "^1.0.5"
   }
 }
