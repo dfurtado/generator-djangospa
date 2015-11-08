@@ -1,16 +1,9 @@
-<h1>{{about.header}}</h1>
+<h1>{{pageHeader.header}}</h1>
 
 <h3>
-	 Learn all about the awesome stuff we <span class="glyphicon glyphicon-heart"></span>
-</h3>	
+     {{pageHeader.message}} <span class="glyphicon glyphicon-heart"></span>
+</h3>   
 
-<div class="things-we-love">
-	<a href="https://www.python.org/">Python</a>
-	<a href="https://www.djangoproject.com/">Django</a>
-	<a href="http://getbootstrap.com/">Bootstrap</a>
-	<a href="https://angularjs.org/">Angular JS</a>
-	<a href="http://yeoman.io/">Yeoman</a>
-	<a href="https://jquery.com/">Jquery</a>
-	<a href="http://bower.io/">Bower</a>
-	<a href="http://gruntjs.com/">Grunt</a>
+<div class="things-we-love" ng-repeat="item in pageItems | filter:{page:'page/2'}">
+        <a href="{{item.urltext}}">{{item.name}}</a>  
 </div>
