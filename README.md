@@ -50,13 +50,13 @@ Access your application admin at `http://127.0.0.1:8000/admin`
 
 Login as superuser you created.
 
-Click Items
-Click Import
-Choose File
-Page.json
-Select Format: json
-Click Submit
-Confirm Import
+Click Items,
+Click Import,
+Choose File,
+Page.json,
+Select Format: json,
+Click Submit,
+Confirm Import,
 Click Home
 
 Repeat for Item.json
