@@ -1,6 +1,9 @@
 from django.contrib.auth.models import User
 from <%= appName %>.models import Sample
+from <%= appName %>.models import Page, Item
 from <%= appName %>.serializers import SampleSerializer
+from <%= appName %>.serializers import PageSerializer
+from <%= appName %>.serializers import ItemSerializer
 from <%= appName %>.serializers import UserSerializer
 from rest_framework import generics
 from rest_framework import permissions
@@ -15,18 +18,46 @@ from django.template import RequestContext, loader
 # Create your views here.
 
 class SampleViewSet(viewsets.ModelViewSet):
-	"""
-	This viewset automatically provides 'list', 'create', 'retrieve',
-	'update', and 'destroy' actions.
-	"""
-	queryset = Sample.objects.all()
-	serializer_class = SampleSerializer
-	permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-		                  IsOwnerOrReadOnly,)
+    """
+    This viewset automatically provides 'list', 'create', 'retrieve',
+    'update', and 'destroy' actions.
+    """
+    queryset = Sample.objects.all()
+    serializer_class = SampleSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly,)
 
-	@detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
-	def perform_create(self, serializer):
-		serializer.save(owner=self.request.user)
+    @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+class PageViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides 'list', 'create', 'retrieve',
+    'update', and 'destroy' actions.
+    """
+    queryset = Page.objects.all()
+    serializer_class = PageSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly,)
+
+    @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)        
+
+class ItemViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides 'list', 'create', 'retrieve',
+    'update', and 'destroy' actions.
+    """
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly,)
+
+    @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)        
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -36,8 +67,8 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = UserSerializer
 
 def index(request):
-	context = RequestContext({})
-	return render(request, 
-		'<%= appName %>/index.html', 
-		context_instance = RequestContext(request, {})
-	)
+    context = RequestContext({})
+    return render(request, 
+        '<%= appName %>/index.html', 
+        context_instance = RequestContext(request, {})
+    )
