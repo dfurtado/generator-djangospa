@@ -23,13 +23,13 @@ Install Django 1.8.0 or later:
 
 
 	$ pip install django
-	
-	
+
+
 Install Django REST Framework
 
 
 	$ pip install djangorestframework
-	
+
 
 Install the django single page app generator
 
@@ -53,10 +53,7 @@ The generator will download all the project dependencies and run grunt to copy f
 
 Access your application at `http://127.0.0.1:8000`
 
-
 ## License
 [MIT](LICENSE.md)
 
--
-
-**Developed with :heart: by Daniel Furtado in Stockholm, Sweden.**
+**Big thanks to [@nolapete](https://github.com/nolapete) for collaborating on the project!**
