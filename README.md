@@ -50,12 +50,16 @@ Access your application admin at `http://127.0.0.1:8000/admin`
 
 Login as superuser you created.
 
-Click Items, Import, Choose File, Item.json
+Click Items
+Click Import
+Choose File
+Page.json
 Select Format: json
-Click Submit, Confirm Import
+Click Submit
+Confirm Import
 Click Home
 
-Repeat for Pages
+Repeat for Item.json
 
 
 ## Django REST framework API
