@@ -19,22 +19,10 @@ Activate the environment:
 	$ . myenv/bin/activate
 
 
-Install Django 1.8.0 or later:
+Install Requirements
 
 
-	$ pip install django
-	
-	
-Install Django REST Framework
-
-
-	$ pip install djangorestframework
-
-
-Install Django import / export
-
-
-	$ pip install django-import-export
+	$ pip install -r requirements.txtt
 	
 
 Install the django single page app generator
