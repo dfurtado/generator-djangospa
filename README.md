@@ -22,7 +22,7 @@ Activate the environment:
 Install Requirements
 
 
-	$ pip install -r requirements.txtt
+	$ pip install -r requirements.txt
 	
 
 Install the django single page app generator
