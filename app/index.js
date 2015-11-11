@@ -15,7 +15,7 @@ var Generator = module.exports = generators.Base.extend({
 		      	bower: true,
 		      	npm: true,
 		      	callback: function() {
-	    			this.spawnCommand('grunt');
+	    			this.spawnCommand('gulp');
 		      	}.bind(this)
 	    	});
   		});
@@ -62,8 +62,6 @@ Generator.prototype.PromptUser = function() {
 	   	this.projectDescription = answers.description || "";
 	   	this.appName = answers.appname;
 	    this.includeLoginPage = answers.includeloginpage;
-
-    	this.destinationRoot(path.join(this.destinationRoot(), "/" + this.projectName))
 
       	done();
 
@@ -125,6 +123,24 @@ Generator.prototype.copyFiles = function() {
 		path.join(this.sourceRoot(), "/main/tests.py"),
 		path.join(this.destinationRoot(), "/" + this.appName + "/tests.py"));
 
+	// copy the rest framework files.
+	this.copy(
+			path.join(this.sourceRoot(), "/main/permissions.py"),
+			path.join(this.destinationRoot(), "/" + this.appName + "/permissions.py"));
+
+	this.copy(
+			path.join(this.sourceRoot(), "/main/serializers.py"),
+			path.join(this.destinationRoot(), "/" + this.appName + "/serializers.py"));
+
+	this.copy(
+			path.join(this.sourceRoot(), "/main/urls.py"),
+			path.join(this.destinationRoot(), "/" + this.appName + "/urls.py"));
+
+	this.copy(
+			path.join(this.sourceRoot(), "/main/views.py"),
+			path.join(this.destinationRoot(), "/" + this.appName + "/views.py"));
+
+
 	if(this.includeLoginPage) {
 		this.copy(
 			path.join(this.sourceRoot(), "/main/forms.py"),
@@ -145,8 +161,8 @@ Generator.prototype.copyFiles = function() {
 		path.join(this.destinationRoot(), "/" + this.appName + "/migrations"));
 
 	this.copy(
-		path.join(this.sourceRoot(), "/Gruntfile.js"),
-		path.join(this.destinationRoot(), "/Gruntfile.js"));
+		path.join(this.sourceRoot(), "/gulpfile.js"),
+		path.join(this.destinationRoot(), "/gulpfile.js"));
 
 	this.copy(
 		path.join(this.sourceRoot(), "/appfiles/__init__.py"),

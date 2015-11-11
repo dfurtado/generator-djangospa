@@ -1,23 +1,26 @@
 (function() {
-	'use strict';
+    'use strict';
 
-	var routeConfig = function($routeProvider) {
+    var routeConfig = function($routeProvider) {
 
-		$routeProvider
-			.when("/", {
-				templateUrl: '/static/view_templates/index.html',
-				controller: 'mainController'
-			})
-			.when("/about", {
-				templateUrl: '/static/view_templates/about.html',
-				controller: 'aboutController'
-			})
-			.when("/contact", {
-				templateUrl: '/static/view_templates/contact.html',
-				controller: 'contactController'
-			})
-			.otherwise({ redirectTo: '/' });
-	};
+        $routeProvider
+            .when("/", {
+                templateUrl: '/static/view_templates/index.html',
+                controller: 'mainController',
+                controllerAs: 'main'
+            })
+            .when("/about", {
+                templateUrl: '/static/view_templates/about.html',
+                controller: 'aboutController',
+                controllerAs: 'about'
+            })
+            .when("/contact", {
+                templateUrl: '/static/view_templates/contact.html',
+                controller: 'contactController',
+                controllerAs: 'contact'
+            })
+            .otherwise({ redirectTo: '/' });
+    };
 
     var httpConfig = function($httpProvider) {
         $httpProvider.defaults.xsrfCookieName = 'csrftoken';
@@ -212,6 +215,7 @@
         this.project = dataOld[0].Page.project;   
         this.items = dataOld[0].Page.Items;  
 	};
+
 
 	angular.module("mainModule", ["ngRoute", "ngResource"])   
         .factory('PageFactory', PageFactory)

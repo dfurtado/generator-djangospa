@@ -74,10 +74,7 @@ Access browsable API at `http://127.0.0.1:8000/api`
 
 Access your application at `http://127.0.0.1:8000`
 
-
 ## License
 [MIT](LICENSE.md)
 
--
-
-**Developed with :heart: by Daniel Furtado in Stockholm, Sweden.**
+**Big thanks to [@nolapete](https://github.com/nolapete) for collaborating on the project!**

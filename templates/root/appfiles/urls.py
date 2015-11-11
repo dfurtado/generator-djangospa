@@ -29,9 +29,9 @@ urlpatterns += patterns(
     url(r'^accounts/login/$', 'views.login', { 
         'template_name': 'app/login.html', 
         'authentication_form': AuthenticationForm
-    }),
+    }, name='login'),
     url(r'^accounts/logout/$', 'views.logout', { 
         'next_page': '/'
-    }),
+    }, name='logout'),
 )
 <% } %>

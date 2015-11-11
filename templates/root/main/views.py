@@ -1,19 +1,17 @@
 from django.contrib.auth.models import User
-from <%= appName %>.models import Sample
-from <%= appName %>.models import Page, Item
-from <%= appName %>.serializers import SampleSerializer
-from <%= appName %>.serializers import PageSerializer
-from <%= appName %>.serializers import ItemSerializer
-from <%= appName %>.serializers import UserSerializer
-from rest_framework import generics
-from rest_framework import permissions
-from <%= appName %>.permissions import IsOwnerOrReadOnly
-from rest_framework.response import Response
-from rest_framework import renderers
-from rest_framework import viewsets
-from rest_framework.decorators import detail_route
 from django.shortcuts import render
 from django.template import RequestContext, loader
+
+from <%= appName %>.models import Sample
+from <%= appName %>.models import Page, Item
+from <%= appName %>.serializers import SampleSerializer, PageSerializer, ItemSerializer, UserSerializer
+from rest_framework import generics, permissions
+from <%= appName %>.permissions import IsOwnerOrReadOnly
+
+from rest_framework import generics, permissions, renderers, viewsets
+from rest_framework.response import Response
+from rest_framework.decorators import detail_route
+
 
 # Create your views here.
 
