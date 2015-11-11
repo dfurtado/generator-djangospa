@@ -152,6 +152,21 @@ Generator.prototype.copyFiles = function() {
 		path.join(this.destinationRoot(), "/" + this.appName + "/views.py"),
 		templateModel);
 
+	this.template(
+		path.join(this.sourceRoot(), "/main/permissions.py"),
+		path.join(this.destinationRoot(), "/" + this.appName + "/permissions.py"),
+		templateModel);
+
+	this.template(
+		path.join(this.sourceRoot(), "/main/serializers.py"),
+		path.join(this.destinationRoot(), "/" + this.appName + "/serializers.py"),
+		templateModel);
+
+	this.template(
+		path.join(this.sourceRoot(), "/main/urls.py"),
+		path.join(this.destinationRoot(), "/" + this.appName + "/urls.py"),
+		templateModel);
+
 	this.copy(
 		path.join(this.sourceRoot(), "/main/templates/main/index.html"),
 		path.join(this.destinationRoot(), "/" + this.appName + "/templates/" + this.appName + "/index.html"));
@@ -171,6 +186,14 @@ Generator.prototype.copyFiles = function() {
 	this.copy(
 		path.join(this.sourceRoot(), "/appfiles/wsgi.py"),
 		destAppRoot + "/wsgi.py");
+
+	this.copy(
+		path.join(this.sourceRoot(), "/appfiles/Item.json"),
+		destAppRoot + "/Item.json");
+
+	this.copy(
+		path.join(this.sourceRoot(), "/appfiles/Page.json"),
+		destAppRoot + "/Page.json");
 
 	this.template(
 		path.join(this.sourceRoot(), "/appfiles/urls.py"),

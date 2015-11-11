@@ -21,7 +21,7 @@ Activate the environment:
 
 Install Requirements
 
-
+	Download requirements.txt
 	$ pip install -r requirements.txt
 	
 
