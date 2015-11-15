@@ -9,42 +9,71 @@ Django single page application for Yeoman
 
 Create a virtual environment and install django:
 
-
-	$ virtualenv myenv
-
+```
+$ virtualenv myenv
+```
 
 Activate the environment:
 
-
-	$ . myenv/bin/activate
-
+```
+$ . myenv/bin/activate
+```
 
 Install Requirements
 
-	Download requirements.txt
-	$ pip install -r requirements.txt
-	
+Download requirements.txt
+
+```
+$ pip install -r requirements.txt
+```
 
 Install the django single page app generator
 
-
-	$ npm install generator-djangospa -g
-
+```
+$ npm install generator-djangospa -g
+```
 
 ## Creating a new project
 
-	$ yo djangospa
+```
+$ yo djangospa
+```
 
 Enter the **project name**, **project description** and the **name of a first django app**.
 
 The generator will download all the project dependencies and run grunt to copy files over to proper locations.
 
+## Project folder structure
+
+```
+├─┬ app\
+│ └─┬ templates\
+│   └── app\
+│
+├── demo\
+│
+├─┬ source\
+│ └── scss\
+│
+├─┬ static\
+│ ├─┬ scripts\
+│ │ └── app\
+│ │
+│ ├─┬ styles\
+│ │ └── css\
+│ │
+│ └── view_templates\
+│
+└── templates\
+```
 
 ## Import default REST JSON data
 
-	$ cd <name_of_your_project>
-	$ python manage.py makemigrations
-	$ python manage.py createsuperuser
+```
+$ cd <name_of_your_project>
+$ python manage.py makemigrations
+$ python manage.py createsuperuser
+```
 
 Access your application admin at `http://127.0.0.1:8000/admin`
 
@@ -67,9 +96,10 @@ Access browsable API at `http://127.0.0.1:8000/api`
 
 
 ## Starting the site
-
-	$ cd <name_of_your_project>
-	$ python manage.py runserver
+```
+$ cd <name_of_your_project>
+$ python manage.py runserver
+```
 
 Access your application at `http://127.0.0.1:8000`
 
