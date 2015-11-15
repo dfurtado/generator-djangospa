@@ -93,6 +93,10 @@ Generator.prototype.copyFiles = function() {
 		path.join(this.sourceRoot(), "/static"),
 		path.join(this.destinationRoot(), "/static"));
 
+	this.directory(
+		path.join(this.sourceRoot(), "/source"),
+		path.join(this.destinationRoot(), "/source"));
+
 	this.copy(
 		path.join(this.sourceRoot(), "/templates/base.html"),
 		path.join(this.destinationRoot(), "/templates/base.html"),
