@@ -63,6 +63,8 @@ Generator.prototype.PromptUser = function() {
 	   	this.appName = answers.appname;
 	    this.includeLoginPage = answers.includeloginpage;
 
+	    this.destinationRoot(path.join(this.destinationRoot(), "/" + this.projectName))
+
       	done();
 
     }.bind(this));
