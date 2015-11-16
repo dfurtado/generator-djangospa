@@ -1,14 +1,8 @@
 
-$background_color: #FFF;
-$jumbotron_color: #EEEEEE;
-$heart_color: #bc4747;
-
-$navbar-color: #222;
-$navbar-border-color: #080808;
-
+@import 'lighttheme';
 
 $basefont_family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$basefont_size: 1.2em; 
+$basefont_size: 1.2em;
 
 @mixin input-border-radius($left:0, $right:0) {
   border-top {
@@ -20,6 +14,7 @@ $basefont_size: 1.2em;
 body {
 
   font-family: $basefont_family;
+  color: $basefont_color;
   padding {
     top: 40px;
     bottom: 40px;
@@ -42,8 +37,8 @@ body {
 
     &.view-container {
 
-      margin-top: 50px;  
-      
+      margin-top: 50px;
+
       a {
         text-decoration: none;
       }
@@ -76,7 +71,7 @@ body {
       }
 
       .jumbotron {
-
+        color: $jumbotronfont_color;
         background-color: $jumbotron_color;
         margin-top: 20px;
 
@@ -101,6 +96,7 @@ body {
 
     margin-bottom: -1px;
     @include input-border-radius();
+
   }
 
   input[type="password"] {
@@ -109,7 +105,7 @@ body {
     @include input-border-radius();
 
   }
-  
+
   .form-signin-heading {
 
     margin-bottom: 10px;
@@ -136,6 +132,7 @@ body {
     &:focus {
       z-index: 2;
     }
+
   }
 
 }
