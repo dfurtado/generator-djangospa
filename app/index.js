@@ -96,11 +96,7 @@ Generator.prototype.copyFiles = function() {
 	this.directory(
 		path.join(this.sourceRoot(), "/source"),
 		path.join(this.destinationRoot(), "/source"));
-
-	this.directory(
-		path.join(this.sourceRoot(), "/fixtures"),
-		path.join(this.destinationRoot(), "/fixtures"));
-
+	
 	this.copy(
 		path.join(this.sourceRoot(), "/templates/base.html"),
 		path.join(this.destinationRoot(), "/templates/base.html"),
@@ -108,7 +104,8 @@ Generator.prototype.copyFiles = function() {
 
 	this.copy(
 		path.join(this.sourceRoot(), "/fixtures/initdata.json"),
-		path.join(this.destinationRoot(), "/fixtures/initdata.json"));
+		path.join(this.destinationRoot(), "/fixtures/initdata.json"),
+		templateModel);
 
 	if(this.includeLoginPage) {
 		this.copy(
