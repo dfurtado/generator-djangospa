@@ -1,0 +1,418 @@
+[    
+    {
+        "fields": {
+            "pageid": "index",
+            "urltext": "https://github.com/dfurtado/generator-djangospa",
+            "created": "2015-11-26T06:39:16.490Z",
+            "project": "generator-djangospa",
+            "header": "Hello, Django!",
+            "owner": 1,
+            "message": "This is a Django single page application created with"
+        },
+        "model": "home.page",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "pageid": "about",
+            "urltext": "",
+            "created": "2015-11-26T06:39:16.480Z",
+            "project": "generator-djangospa",
+            "header": "About",
+            "owner": 1,
+            "message": "Learn all about the awesome stuff we"
+        },
+        "model": "home.page",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "pageid": "contact",
+            "urltext": "",
+            "created": "2015-11-26T06:39:16.485Z",
+            "project": "generator-djangospa",
+            "header": "Contact",
+            "owner": 1,
+            "message": ""
+        },
+        "model": "home.page",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "info": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+            "name": "Heading 1",
+            "created": "2015-11-26T06:40:14.860Z",
+            "button": "Learn more »",
+            "urltext": "",
+            "owner": 1,
+            "page": 1
+        },
+        "model": "home.item",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "info": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+            "name": "Heading 2",
+            "created": "2015-11-26T06:40:14.864Z",
+            "button": "Learn more »",
+            "urltext": "",
+            "owner": 1,
+            "page": 1
+        },
+        "model": "home.item",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "info": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+            "name": "Heading 3",
+            "created": "2015-11-26T06:40:14.869Z",
+            "button": "View details »",
+            "urltext": "",
+            "owner": 1,
+            "page": 1
+        },
+        "model": "home.item",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "info": "",
+            "name": "Django",
+            "created": "2015-11-26T06:40:14.846Z",
+            "button": "",
+            "urltext": "https://www.djangoproject.com/",
+            "owner": 1,
+            "page": 2
+        },
+        "model": "home.item",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "info": "",
+            "name": "Django REST framework",
+            "created": "2015-11-26T06:40:14.851Z",
+            "button": "",
+            "urltext": "http://www.django-rest-framework.org/",
+            "owner": 1,
+            "page": 2
+        },
+        "model": "home.item",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "info": "",
+            "name": "Bootstrap",
+            "created": "2015-11-26T06:40:14.832Z",
+            "button": "",
+            "urltext": "http://getbootstrap.com/",
+            "owner": 1,
+            "page": 2
+        },
+        "model": "home.item",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "info": "",
+            "name": "Angular JS",
+            "created": "2015-11-26T06:40:14.827Z",
+            "button": "",
+            "urltext": "http://angularjs.org/",
+            "owner": 1,
+            "page": 2
+        },
+        "model": "home.item",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "info": "",
+            "name": "Yeoman",
+            "created": "2015-11-26T06:40:14.881Z",
+            "button": "",
+            "urltext": "http://yeoman.io/",
+            "owner": 1,
+            "page": 2
+        },
+        "model": "home.item",
+        "pk": 8
+    },
+    {
+        "fields": {
+            "info": "",
+            "name": "Jquery",
+            "created": "2015-11-26T06:40:14.873Z",
+            "button": "",
+            "urltext": "http://jquery.com/",
+            "owner": 1,
+            "page": 2
+        },
+        "model": "home.item",
+        "pk": 9
+    },
+    {
+        "fields": {
+            "info": "",
+            "name": "Bower",
+            "created": "2015-11-26T06:40:14.837Z",
+            "button": "",
+            "urltext": "http://bower.io/",
+            "owner": 1,
+            "page": 2
+        },
+        "model": "home.item",
+        "pk": 10
+    },
+    {
+        "fields": {
+            "info": "",
+            "name": "Grunt",
+            "created": "2015-11-26T06:40:14.856Z",
+            "button": "",
+            "urltext": "http://gruntjs.com/",
+            "owner": 1,
+            "page": 2
+        },
+        "model": "home.item",
+        "pk": 11
+    },
+    {
+        "fields": {
+            "info": "",
+            "name": "Project's website",
+            "created": "2015-11-26T06:40:14.877Z",
+            "button": "",
+            "urltext": "https://github.com/dfurtado/generator-djangospa",
+            "owner": 1,
+            "page": 3
+        },
+        "model": "home.item",
+        "pk": 12
+    },
+    {
+        "fields": {
+            "info": "",
+            "name": "Bug reporting",
+            "created": "2015-11-26T06:40:14.842Z",
+            "button": "",
+            "urltext": "https://github.com/dfurtado/generator-djangospa/issues",
+            "owner": 1,
+            "page": 3
+        },
+        "model": "home.item",
+        "pk": 13
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:39:16.600Z",
+            "object_repr": "about",
+            "object_id": "2",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 8
+        },
+        "model": "admin.logentry",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:39:16.721Z",
+            "object_repr": "contact",
+            "object_id": "3",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 8
+        },
+        "model": "admin.logentry",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:39:16.842Z",
+            "object_repr": "index",
+            "object_id": "1",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 8
+        },
+        "model": "admin.logentry",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:40:15.046Z",
+            "object_repr": "Angular JS",
+            "object_id": "7",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 9
+        },
+        "model": "admin.logentry",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:40:15.190Z",
+            "object_repr": "Bootstrap",
+            "object_id": "6",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 9
+        },
+        "model": "admin.logentry",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:40:15.347Z",
+            "object_repr": "Bower",
+            "object_id": "10",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 9
+        },
+        "model": "admin.logentry",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:40:15.492Z",
+            "object_repr": "Bug reporting",
+            "object_id": "13",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 9
+        },
+        "model": "admin.logentry",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:40:15.649Z",
+            "object_repr": "Django",
+            "object_id": "4",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 9
+        },
+        "model": "admin.logentry",
+        "pk": 8
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:40:15.809Z",
+            "object_repr": "Django REST framework",
+            "object_id": "5",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 9
+        },
+        "model": "admin.logentry",
+        "pk": 9
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:40:16.059Z",
+            "object_repr": "Grunt",
+            "object_id": "11",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 9
+        },
+        "model": "admin.logentry",
+        "pk": 10
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:40:16.228Z",
+            "object_repr": "Heading 1",
+            "object_id": "1",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 9
+        },
+        "model": "admin.logentry",
+        "pk": 11
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:40:16.385Z",
+            "object_repr": "Heading 2",
+            "object_id": "2",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 9
+        },
+        "model": "admin.logentry",
+        "pk": 12
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:40:16.542Z",
+            "object_repr": "Heading 3",
+            "object_id": "3",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 9
+        },
+        "model": "admin.logentry",
+        "pk": 13
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:40:16.688Z",
+            "object_repr": "Jquery",
+            "object_id": "9",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 9
+        },
+        "model": "admin.logentry",
+        "pk": 14
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:40:16.845Z",
+            "object_repr": "Project's website",
+            "object_id": "12",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 9
+        },
+        "model": "admin.logentry",
+        "pk": 15
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-11-26T06:40:17.002Z",
+            "object_repr": "Yeoman",
+            "object_id": "8",
+            "change_message": "new through import_export",
+            "user": 1,
+            "content_type": 9
+        },
+        "model": "admin.logentry",
+        "pk": 16
+    }
+]
