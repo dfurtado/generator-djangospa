@@ -10,7 +10,7 @@ var Generator = module.exports = generators.Base.extend({
   	constructor: function () {
 	    generators.Base.apply(this, arguments);
 
-    	this.on('end', function () {
+    	// this.on('end', function () {
 	    	this.installDependencies({
 		      	bower: true,
 		      	npm: true,
@@ -18,7 +18,7 @@ var Generator = module.exports = generators.Base.extend({
 	    			this.spawnCommand('gulp');
 		      	}.bind(this)
 	    	});
-  		});
+  		// });
 
  		this.sourceRoot(path.join(__dirname, '../templates/root'));
 
