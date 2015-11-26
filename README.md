@@ -19,12 +19,11 @@ Activate the environment:
 $ . myenv/bin/activate
 ```
 
-Install Requirements
-
-Download requirements.txt
+Install Requirements:
 
 ```
-$ pip install -r requirements.txt
+$ pip install django=>1.8
+$ pip install djangorestframework
 ```
 
 Install the django single page app generator
@@ -67,37 +66,21 @@ The generator will download all the project dependencies and run grunt to copy f
 └── templates\
 ```
 
-## Starting the site
+## Initializing the site
 ```
 $ cd <name_of_your_project>
 $ python manage.py migrate
+$ python manage.py createsuperuser
+$ python manage.py loaddata initdata.json
+```
+
+## Starting the site
+```
+$ cd <name_of_your_project>
 $ python manage.py runserver
 ```
 
 Access your application at `http://127.0.0.1:8000`
-
-
-## OPTIONAL Import default REST JSON data
-
-```
-$ cd <name_of_your_project>
-$ python manage.py createsuperuser
-```
-
-Access your application admin at `http://127.0.0.1:8000/admin`
-
-Login as superuser you created.
-
-### Importing the pages default data
-
-Click Items -> Import and choose the JSON file containing the pages default data.
-The Page.json file can be found in the project folder.
-
-### Importing items default data
-
-Click Items -> Import and choose the JSON file containing the items default data.
-The Item.json file can be found in the project folder.
-
 
 ## Django REST framework API
 
