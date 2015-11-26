@@ -97,10 +97,18 @@ Generator.prototype.copyFiles = function() {
 		path.join(this.sourceRoot(), "/source"),
 		path.join(this.destinationRoot(), "/source"));
 
+	this.directory(
+		path.join(this.sourceRoot(), "/fixtures"),
+		path.join(this.destinationRoot(), "/fixtures"));
+
 	this.copy(
 		path.join(this.sourceRoot(), "/templates/base.html"),
 		path.join(this.destinationRoot(), "/templates/base.html"),
 		templateModel);
+
+	this.copy(
+		path.join(this.sourceRoot(), "/fixtures/initdata.json"),
+		path.join(this.destinationRoot(), "/fixtures/initdata.json"));
 
 	if(this.includeLoginPage) {
 		this.copy(
@@ -191,15 +199,7 @@ Generator.prototype.copyFiles = function() {
 
 	this.copy(
 		path.join(this.sourceRoot(), "/appfiles/wsgi.py"),
-		destAppRoot + "/wsgi.py");
-
-	this.copy(
-		path.join(this.sourceRoot(), "/appfiles/Item.json"),
-		destAppRoot + "/Item.json");
-
-	this.copy(
-		path.join(this.sourceRoot(), "/appfiles/Page.json"),
-		destAppRoot + "/Page.json");
+		destAppRoot + "/wsgi.py");	
 
 	this.template(
 		path.join(this.sourceRoot(), "/appfiles/urls.py"),
