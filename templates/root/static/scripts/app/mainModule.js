@@ -27,29 +27,31 @@
         $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
     };
 
-	var onRun = function($rootScope, $location) {
-		$rootScope.$on('$routeChangeStart', function(evt, next, current) {
-			$rootScope.currentView = next.$$route.originalPath;
-		});
-	};
+    var onRun = function($rootScope, $location) {
+        $rootScope.$on('$routeChangeStart', function(evt, next, current) {
+            $rootScope.currentView = next.$$route.originalPath;
+        });
+    };
 
-    var PageFactory = function($resource) {
-                return $resource("/api/page/:id");
+    var PageFactory = function($resource) {            
+            return $resource("/api/page/:id");
         };
 
-    var ItemFactory = function($resource) {
+    var ItemFactory = function($resource) {            
             return $resource("/api/item/:id");
     };   
     
     var mainController = function($route, PageFactory, ItemFactory, $scope) {
         PageFactory.get({ id: 1}, function(data) {
-            $scope.pageHeader = data;
+            $scope.pageHeader = data;            
         });
         
         ItemFactory.query(function(data) {
             $scope.pageItems = data;
         });        
         
+        $scope.showStatus = $scope.pageHeader;
+
         var dataOld = [
             {
                 "Page":
@@ -90,9 +92,9 @@
         this.url = dataOld[0].Page.urltext;
         this.project = dataOld[0].Page.project;   
         this.items = dataOld[0].Page.Items;   
-	};
+    };
 
-	var aboutController = function(PageFactory, ItemFactory, $scope) {
+    var aboutController = function(PageFactory, ItemFactory, $scope) {
         PageFactory.get({ id: 2}, function(data) {
             $scope.pageHeader = data;
         });
@@ -100,6 +102,8 @@
         ItemFactory.query(function(data) {
             $scope.pageItems = data;
         });
+
+        $scope.showStatus = $scope.pageHeader;
                 
         var dataOld = [
             {
@@ -170,7 +174,7 @@
         this.url = dataOld[0].Page.urltext;
         this.project = dataOld[0].Page.project;   
         this.items = dataOld[0].Page.Items; 
-	};
+    };
 
     var contactController = function(PageFactory, ItemFactory, $scope) {
         PageFactory.get({ id: 3}, function(data) {
@@ -180,7 +184,9 @@
         ItemFactory.query(function(data) {
             $scope.pageItems = data;
         });
-         
+        
+        $scope.showStatus = $scope.pageHeader;
+        
         var dataOld = [
             {
                 "Page":
@@ -214,17 +220,17 @@
         this.url = dataOld[0].Page.urltext;
         this.project = dataOld[0].Page.project;   
         this.items = dataOld[0].Page.Items;  
-	};
+    };
 
 
-	angular.module("mainModule", ["ngRoute", "ngResource"])   
+    angular.module("mainModule", ["ngRoute", "ngResource"])   
         .factory('PageFactory', PageFactory)
         .factory('ItemFactory', ItemFactory)        
-		.controller('mainController', mainController)
-		.controller('aboutController', aboutController)
-		.controller('contactController', contactController)
+        .controller('mainController', mainController)
+        .controller('aboutController', aboutController)
+        .controller('contactController', contactController)
         .config(httpConfig)
-		.config(routeConfig)
-		.run(onRun);
+        .config(routeConfig)
+        .run(onRun);
 
 }());

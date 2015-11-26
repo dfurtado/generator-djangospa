@@ -1,7 +1,8 @@
+<div ng-show="showStatus">
 <div class="jumbotron">
     <h1>{{pageHeader.header}}</h1>
     <p>{{pageHeader.message}}
-        <a href="{{pageHeader.urltext}}">{{pageHeader.project}}</a>
+        <a href="{{pageHeader.urltext}}">{{pageHeader.project}}</a></p>
  </div>
 
 <div class="row">
@@ -11,4 +12,22 @@
         </p>
         <p><a class="btn btn-default" href="#" role="button">{{item.button}}</a></p>
     </div><!--/.col-xs-6.col-lg-4-->    
+</div>
+</div>
+
+<div ng-hide="showStatus">
+<div class="jumbotron">
+    <h1>{{main.header}}</h1>
+    <p>{{main.message}}
+        <a href="{{main.urltext}}">{{main.project}}</a></p>
+ </div>
+
+<div class="row">
+    <div class="col-xs-6 col-lg-4" ng-repeat="item in main.items">
+        <h2>{{item.name}}</h2>
+        <p>{{item.info}}
+        </p>
+        <p><a class="btn btn-default" href="#" role="button">{{item.button}}</a></p>
+    </div><!--/.col-xs-6.col-lg-4-->    
+</div>
 </div>

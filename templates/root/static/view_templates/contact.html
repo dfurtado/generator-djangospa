@@ -1,3 +1,4 @@
+<div ng-show="showStatus">
 <h1>{{pageHeader.header}}</h1>
 
 <div class="contact-info" ng-repeat="item in pageItems | filter:{page:'page/3'}">
@@ -7,4 +8,17 @@
             {{item.urltext}}
         </a>
     </p>    
+</div>
+</div>
+<div ng-hide="showStatus">
+<h1>{{contact.header}}</h1>
+
+<div class="contact-info" ng-repeat="item in contact.items">
+    <p>
+        {{item.name}}: 
+        <a href="{{item.urltext}}">
+            {{item.urltext}}
+        </a>
+    </p>    
+</div>
 </div>

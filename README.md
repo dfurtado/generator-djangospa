@@ -67,11 +67,20 @@ The generator will download all the project dependencies and run grunt to copy f
 └── templates\
 ```
 
-## Import default REST JSON data
+## Starting the site
+```
+$ cd <name_of_your_project>
+$ python manage.py migrate
+$ python manage.py runserver
+```
+
+Access your application at `http://127.0.0.1:8000`
+
+
+## OPTIONAL Import default REST JSON data
 
 ```
 $ cd <name_of_your_project>
-$ python manage.py makemigrations
 $ python manage.py createsuperuser
 ```
 
@@ -94,14 +103,6 @@ The Item.json file can be found in the project folder.
 
 Access browsable API at `http://127.0.0.1:8000/api`
 
-
-## Starting the site
-```
-$ cd <name_of_your_project>
-$ python manage.py runserver
-```
-
-Access your application at `http://127.0.0.1:8000`
 
 ## License
 [MIT](LICENSE.md)
