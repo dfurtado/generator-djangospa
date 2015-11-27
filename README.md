@@ -40,7 +40,7 @@ $ yo djangospa
 
 Enter the **project name**, **project description** and the **name of a first django app**.
 
-The generator will download all the project dependencies and run grunt to copy files over to proper locations.
+The generator will download all the project dependencies and run gulp to copy files over to proper locations.
 
 ## Project folder structure
 
