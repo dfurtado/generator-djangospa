@@ -76,7 +76,6 @@ $ python manage.py loaddata initdata.json
 
 ## Starting the site
 ```
-$ cd <name_of_your_project>
 $ python manage.py runserver
 ```
 

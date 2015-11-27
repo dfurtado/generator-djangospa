@@ -8,17 +8,7 @@ var randomstring = require('randomstring');
 var Generator = module.exports = generators.Base.extend({
 
   	constructor: function () {
-	    generators.Base.apply(this, arguments);
-
-    	// this.on('end', function () {
-	    	this.installDependencies({
-		      	bower: true,
-		      	npm: true,
-		      	callback: function() {
-	    			this.spawnCommand('gulp');
-		      	}.bind(this)
-	    	});
-  		// });
+	    generators.Base.apply(this, arguments);    	
 
  		this.sourceRoot(path.join(__dirname, '../templates/root'));
 
@@ -30,7 +20,7 @@ var Generator = module.exports = generators.Base.extend({
 
 Generator.prototype.Greetings = function() {
 	console.log(yosay("Welcome to the (awesome) single page application generator for Django."));
-}
+};
 
 Generator.prototype.PromptUser = function() {
 	// prompt the user about the application settings.
@@ -237,4 +227,16 @@ Generator.prototype.packageFiles = function packageFiles() {
   		path.join(this.sourceRoot(), "/_package.json"),
   		path.join(dest, "/package.json"),
   		templateModel);
+};
+
+Generator.prototype.install = function () {
+	// this.on('end', function () {
+	    	this.installDependencies({
+		      	bower: true,
+		      	npm: true,
+		      	callback: function() {
+	    			this.spawnCommand('gulp');
+		      	}.bind(this)
+	    	});
+  		// });
 };
