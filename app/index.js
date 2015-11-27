@@ -1,13 +1,14 @@
 'use strict';
 
-var generators = require('yeoman-generator');
-var path = require('path');
-var yosay = require('yosay');
-var randomstring = require('randomstring');
+var generators = require('yeoman-generator'),
+	path = require('path'),
+	yosay = require('yosay'),
+	randomstring = require('randomstring');
 
 var Generator = module.exports = generators.Base.extend({
 
   	constructor: function () {
+
 	    generators.Base.apply(this, arguments);    	
 
  		this.sourceRoot(path.join(__dirname, '../templates/root'));
@@ -30,29 +31,37 @@ Generator.prototype.PromptUser = function() {
 	this.prompt([{
 	  	type    : 'input',
 	   	name    : 'projectname',
-	   	message : 'Your project name',
+	   	message : 'Your project name:',
 	   	required: true
 	}, {
 	   	type    : 'input',
 	   	name    : 'description',
-	   	message : 'Project description',
+	   	message : 'Project description:',
 	   	required: false
 	}, {
 	   	type    : 'input',
 	   	name    : 'appname',
-	   	message : 'Initial application name',
+	   	message : 'Initial application name:',
+	   	default : 'main',
 	   	required: true
 	}, {
       type    : 'confirm',
       name    : 'includeloginpage',
       message : 'Include login page?'
-  }], function (answers) {
+  	},
+  	{
+  		type    : 'input',
+	   	name    : 'projectlicense',
+	   	message : 'License:',
+	   	default : 'MIT',
+	   	required: true
+  	}], function (answers) {
 
 	   	this.projectName = answers.projectname;
 	   	this.projectDescription = answers.description || "";
 	   	this.appName = answers.appname;
 	    this.includeLoginPage = answers.includeloginpage;
-
+	    this.projectLicense = answers.projectlicense;
 	    this.destinationRoot(path.join(this.destinationRoot(), "/" + this.projectName))
 
       	done();
@@ -141,7 +150,6 @@ Generator.prototype.copyFiles = function() {
 			path.join(this.sourceRoot(), "/main/views.py"),
 			path.join(this.destinationRoot(), "/" + this.appName + "/views.py"));
 
-
 	if(this.includeLoginPage) {
 		this.copy(
 			path.join(this.sourceRoot(), "/main/forms.py"),
@@ -205,7 +213,7 @@ Generator.prototype.copyFiles = function() {
 
 };
 
-Generator.prototype.packageFiles = function packageFiles() {
+Generator.prototype.packageFiles = function() {
 	// Copy the configuration files containing all the project dependencies.
 
 	var dest = this.destinationRoot(),
@@ -215,7 +223,8 @@ Generator.prototype.packageFiles = function packageFiles() {
 	var templateModel = {
 		projectName: this.projectName,
 		projectDescription: this.projectDescription,
-		appName: this.appName
+		appName: this.appName,
+		projectLicense : this.projectLicense
 	};
 
 	this.template(
@@ -229,14 +238,14 @@ Generator.prototype.packageFiles = function packageFiles() {
   		templateModel);
 };
 
-Generator.prototype.install = function () {
-	// this.on('end', function () {
-	    	this.installDependencies({
-		      	bower: true,
-		      	npm: true,
-		      	callback: function() {
-	    			this.spawnCommand('gulp');
-		      	}.bind(this)
-	    	});
-  		// });
+Generator.prototype.install = function() {
+
+   	this.installDependencies({
+      	bower: true,
+      	npm: true,
+      	callback: function() {
+   			this.spawnCommand('gulp');
+      	}.bind(this)
+   	});
+
 };
