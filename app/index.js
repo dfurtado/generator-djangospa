@@ -45,9 +45,17 @@ Generator.prototype.PromptUser = function() {
 	   	default : 'main',
 	   	required: true
 	}, {
-      type    : 'confirm',
-      name    : 'includeloginpage',
-      message : 'Include login page?'
+      	type    : 'confirm',
+      	name    : 'includeloginpage',
+      	message : 'Include login page?',
+      	default : true
+  	}, {
+  		type    : 'list',
+	   	name    : 'sitetheme',
+	   	message : 'Which theme do you want to use:',
+	   	choices : ['Light theme', 'Dark theme'],
+	   	default : 'Light theme',
+	   	required: true
   	},
   	{
   		type    : 'input',
@@ -63,8 +71,9 @@ Generator.prototype.PromptUser = function() {
 	    this.includeLoginPage = answers.includeloginpage;
 	    this.projectLicense = answers.projectlicense;
 	    this.destinationRoot(path.join(this.destinationRoot(), "/" + this.projectName))
+	    this.projectTheme = "_" + answers.sitetheme.replace(' ', '').toLowerCase();
 
-      	done();
+      	done();      	
 
     }.bind(this));
 
@@ -83,7 +92,8 @@ Generator.prototype.copyFiles = function() {
 		projectDescription: this.projectDescription,
 		appName: this.appName,
 		includeLoginPage: this.includeLoginPage,
-		secret_key: this.secret_key
+		secret_key: this.secret_key,
+		projectTheme: this.projectTheme
 	};
 
 	// copy static folder, it is where all the javascript, css, fonts
@@ -95,6 +105,11 @@ Generator.prototype.copyFiles = function() {
 	this.directory(
 		path.join(this.sourceRoot(), "/source"),
 		path.join(this.destinationRoot(), "/source"));
+
+	this.copy(
+		path.join(this.sourceRoot(), "/source/scss/styles.scss"),
+		path.join(this.destinationRoot(), "/source/scss/styles.scss"),
+		templateModel);
 	
 	this.copy(
 		path.join(this.sourceRoot(), "/templates/base.html"),

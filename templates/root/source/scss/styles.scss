@@ -1,5 +1,5 @@
 
-@import 'lighttheme';
+@import '<%= projectTheme %>';
 
 $basefont_family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $basefont_size: 1.2em;
