@@ -1,9 +1,9 @@
-<h1>{{about.header}}</h1>
+<h1>{{pageHeader.header}}</h1>
 
 <h3>
-	 {{about.message}} <span class="glyphicon glyphicon-heart"></span>
-</h3>	
+     {{pageHeader.message}} <span class="glyphicon glyphicon-heart"></span>
+</h3>   
 
-<div class="things-we-love" ng-repeat="thing in about.things">
-		<a href="{{thing.url}}">{{thing.name}}</a>	
+<div class="things-we-love" ng-repeat="item in pageItems | filter:{page:'page/2'}">
+    <a href="{{item.urltext}}">{{item.name}}</a>  
 </div>

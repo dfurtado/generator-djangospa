@@ -1,10 +1,10 @@
-<h1>{{contact.header}}</h1>
+<h1>{{pageHeader.header}}</h1>
 
-<div class="contact-info" ng-repeat="contact in contact.contacts">
-	<p>
-		{{contact.name}}: 
-		<a href="{{contact.url}}">
-			{{contact.url}}
-		</a>
-	</p>	
+<div class="contact-info" ng-repeat="item in pageItems | filter:{page:'page/3'}">
+    <p>
+        {{item.name}}: 
+        <a href="{{item.urltext}}">
+            {{item.urltext}}
+        </a>
+    </p>    
 </div>

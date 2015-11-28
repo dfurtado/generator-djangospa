@@ -29,13 +29,18 @@
 
     <div class="container">
 
-      <form class="form-signin">
+      <form action="." method="post" class="form-signin">
+        
+        <input type="hidden" name="next" value="/" />
+
+        {% csrf_token %}
+
         <h2 class="form-signin-heading">Login</h2>
         <label for="inputUsername" class="sr-only">User name</label>
-        {{username}}
-        <email for="inputPassword" class="sr-only">Password</label>
-        {{password}}
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        {{form.username}}
+        <label for="inputPassword" class="sr-only">Password</label>
+        {{form.password}}
+        <input class="btn btn-lg btn-primary btn-block" type="Submit" value="Login">
       </form>
 
     </div> <!-- /container -->

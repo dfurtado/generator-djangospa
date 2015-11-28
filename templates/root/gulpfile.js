@@ -1,10 +1,13 @@
 var gulp = require('gulp'),
-	path = require('path');
+	path = require('path'),
+	sass = require('gulp-sass'),
+	sourcemaps = require('gulp-sourcemaps');
 
 var paths = {
 
 	jslibs: [
-		'bower_components/angular/angular.min.js', 
+		'bower_components/angular/angular.min.js',
+		'bower_components/angular-resource/angular-resource.min.js',
         'bower_components/angular-route/angular-route.min.js',
         'bower_components/bootstrap/dist/js/bootstrap.min.js',
         'bower_components/jquery/dist/jquery.min.js'
@@ -21,8 +24,15 @@ var paths = {
 	dest: {
 		scripts:   path.join(__dirname, 'static', 'scripts'),
 		styles:    path.join(__dirname, 'static', 'styles')
+	},
+	scss: {
+		source: path.join(__dirname, 'source', 'scss/**/*.scss')
 	}
 }
+
+var sass_error_handler = function(err) {
+	console.log(err);
+};
 
 gulp.task('copy-styles', function() {
 	gulp.src(paths.styles)
@@ -38,4 +48,16 @@ gulp.task('copy-scripts', function() {
 		.pipe(gulp.dest(paths.dest.scripts));
 });
 
-gulp.task('default', ['copy-scripts', 'copy-styles'])
+gulp.task('sass', function() {
+	gulp.src(paths.scss.source)
+		.pipe(sourcemaps.init())
+		.pipe(sass().on('error', sass_error_handler))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest(path.join(paths.dest.styles, 'css')));
+});
+
+gulp.task('sass:watch', function() {
+    gulp.watch(paths.scss.source, ['sass']);
+});
+
+gulp.task('default', ['copy-scripts', 'copy-styles', 'sass'])

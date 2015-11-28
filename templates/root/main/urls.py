@@ -2,9 +2,11 @@ from django.conf.urls import url, include
 from <%= appName %> import views
 from rest_framework.routers import DefaultRouter
 
-# Creat a router and register our viewsets with it.
+# Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register(r'sample', views.SampleViewSet)
+router.register(r'page', views.PageViewSet)
+router.register(r'item', views.ItemViewSet)
 router.register(r'users', views.UserViewSet)
 
 # The API URLs are now determined automatically by the router.

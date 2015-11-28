@@ -1,14 +1,15 @@
 <div class="jumbotron">
-    <h1>{{main.header}}</h1>
-    <p>{{main.message}}
-    	<a href="{{main.url}}">{{main.project}}</a>
+    <h1>{{pageHeader.header}}</h1>
+    <p>{{pageHeader.message}}
+        <a href="{{pageHeader.urltext}}">{{pageHeader.project}}</a>
+    </p>
  </div>
 
 <div class="row">
-	<div class="col-xs-6 col-lg-4" ng-repeat="item in main.items">
-		<h2>{{item.heading}}</h2>
-		<p>{{item.description}}
-		</p>
-		<p><a class="btn btn-default" href="#" role="button">{{item.button}}</a></p>
-	</div><!--/.col-xs-6.col-lg-4-->	
+    <div class="col-xs-6 col-lg-4" ng-repeat="item in pageItems | filter:{page:'page/1'}">
+        <h2>{{item.name}}</h2>
+        <p>{{item.info}}
+        </p>
+        <p><a class="btn btn-default" href="#" role="button">{{item.button}}</a></p>
+    </div><!--/.col-xs-6.col-lg-4-->    
 </div>

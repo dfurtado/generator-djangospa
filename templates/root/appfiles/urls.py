@@ -1,5 +1,4 @@
 """template URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.8/topics/http/urls/
 Examples:
@@ -15,7 +14,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url, patterns
 from django.contrib import admin
+<% if (includeLoginPage == true) { %>
 from <%= appName %>.forms import AuthenticationForm
+<% } %>
 
 urlpatterns = patterns('',
     url(r'^$', '<%= appName %>.views.index', name="index"),
@@ -26,11 +27,11 @@ urlpatterns = patterns('',
 <% if (includeLoginPage == true) { %>
 urlpatterns += patterns(
     'django.contrib.auth',
-    url(r'^accounts/login/$', 'views.login', { 
-        'template_name': 'app/login.html', 
+    url(r'^accounts/login/$', 'views.login', {
+        'template_name': 'login.html', 
         'authentication_form': AuthenticationForm
     }, name='login'),
-    url(r'^accounts/logout/$', 'views.logout', { 
+    url(r'^accounts/logout/$', 'views.logout', {
         'next_page': '/'
     }, name='logout'),
 )

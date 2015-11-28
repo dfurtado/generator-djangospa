@@ -1,0 +1,32 @@
+
+$background_color: #000;
+
+$jumbotron_color: #A2A2A2;
+$jumbotronfont_color: #000;
+
+$baseheader_color: #EEEEEE;
+$basefont_color: darken($baseheader_color, 30%);
+
+$heart_color: #bc4747;
+$navbar-color: #222;
+$navbar-border-color: #080808;
+
+body {
+
+  h1 {
+      color: $baseheader_color;
+  }
+
+  h2 {
+      color: darken($baseheader_color, 5%);
+  }
+
+  h3 {
+      color: darken($baseheader_color, 10%);
+  }
+
+  h4 {
+      color: darken($baseheader_color, 15%);
+  }
+
+}
