@@ -110,4 +110,4 @@ Copyright (c) 2015 [Daniel Furtado](https://twitter.com/the8bitcoder). Code rele
 
 ## Contributors
 
-https://github.com/dfurtado/generator-djangospa/graphs/contributors
+[https://github.com/dfurtado/generator-djangospa/graphs/contributors](https://github.com/dfurtado/generator-djangospa/graphs/contributors)
