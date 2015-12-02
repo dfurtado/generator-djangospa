@@ -1,6 +1,6 @@
 {
   "name": "generator-djangospa",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Django single page application for Yeoman",
   "keywords": [
     "yeoman-generator",
