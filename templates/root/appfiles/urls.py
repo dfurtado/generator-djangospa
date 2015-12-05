@@ -16,23 +16,24 @@ from django.conf.urls import include, url, patterns
 from django.contrib import admin
 <% if (includeLoginPage == true) { %>
 from <%= appName %>.forms import AuthenticationForm
+from <%= appName %> import views
 <% } %>
 
-urlpatterns = patterns('',
-    url(r'^$', '<%= appName %>.views.index', name="index"),
+urlpatterns = [
+    url(r'^$', views.index, name="index"),
     url(r'^', include('<%= appName %>.urls')),
     url(r'^admin/', include(admin.site.urls)),
-)
+]
 
 <% if (includeLoginPage == true) { %>
-urlpatterns += patterns(
-    'django.contrib.auth',
-    url(r'^accounts/login/$', 'views.login', {
-        'template_name': 'login.html', 
-        'authentication_form': AuthenticationForm
-    }, name='login'),
-    url(r'^accounts/logout/$', 'views.logout', {
-        'next_page': '/'
-    }, name='logout'),
-)
+#urlpatterns += patterns(
+#    'django.contrib.auth',
+#    url(r'^accounts/login/$', 'views.login', {
+#        'template_name': 'login.html', 
+#        'authentication_form': AuthenticationForm
+#    }, name='login'),
+#    url(r'^accounts/logout/$', 'views.logout', {
+#        'next_page': '/'
+#    }, name='logout'),
+#)
 <% } %>

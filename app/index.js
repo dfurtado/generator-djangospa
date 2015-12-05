@@ -51,6 +51,13 @@ Generator.prototype.PromptUser = function() {
       	default : true
   	}, {
   		type    : 'list',
+	   	name    : 'djangoVersion',
+	   	message : 'Which django you will be using:',
+	   	choices : ['>=1.8,<1.9', '1.9'],
+	   	default : '>=1.8,<1.9',
+	   	required: true
+  	}, {
+  		type    : 'list',
 	   	name    : 'sitetheme',
 	   	message : 'Which theme do you want to use:',
 	   	choices : ['Light theme', 'Dark theme'],
@@ -72,6 +79,7 @@ Generator.prototype.PromptUser = function() {
 	    this.projectLicense = answers.projectlicense;
 	    this.destinationRoot(path.join(this.destinationRoot(), "/" + this.projectName))
 	    this.projectTheme = "_" + answers.sitetheme.replace(' ', '').toLowerCase();
+	    this.isDjango1_9 = answers.djangoVersion === "1.9";
 
       	done();      	
 
@@ -93,7 +101,8 @@ Generator.prototype.copyFiles = function() {
 		appName: this.appName,
 		includeLoginPage: this.includeLoginPage,
 		secret_key: this.secret_key,
-		projectTheme: this.projectTheme
+		projectTheme: this.projectTheme,
+		isDjango1_9: this.isDjango1_9
 	};
 
 	// copy static folder, it is where all the javascript, css, fonts
@@ -148,6 +157,13 @@ Generator.prototype.copyFiles = function() {
 		path.join(this.sourceRoot(), "/main/tests.py"),
 		path.join(this.destinationRoot(), "/" + this.appName + "/tests.py"));
 
+	if(this.isDjango1_9) {
+		this.template(
+			path.join(this.sourceRoot(), "/main/apps.py"),
+			path.join(this.destinationRoot(), "/" + this.appName + "/apps.py"),
+			templateModel);
+	}
+
 	// copy the rest framework files.
 	this.copy(
 			path.join(this.sourceRoot(), "/main/permissions.py"),
@@ -166,9 +182,10 @@ Generator.prototype.copyFiles = function() {
 			path.join(this.destinationRoot(), "/" + this.appName + "/views.py"));
 
 	if(this.includeLoginPage) {
-		this.copy(
+		this.template(
 			path.join(this.sourceRoot(), "/main/forms.py"),
-			path.join(this.destinationRoot(), "/" + this.appName + "/forms.py"));
+			path.join(this.destinationRoot(), "/" + this.appName + "/forms.py"),
+			templateModel);
 	}
 
 	this.template(
