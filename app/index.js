@@ -53,8 +53,8 @@ Generator.prototype.PromptUser = function() {
   		type    : 'list',
 	   	name    : 'djangoVersion',
 	   	message : 'Which django you will be using:',
-	   	choices : ['>=1.8,<1.9', '1.9'],
-	   	default : '>=1.8,<1.9',
+	   	choices : ['1.8.x', '1.9'],
+	   	default : '1.8.x',
 	   	required: true
   	}, {
   		type    : 'list',
