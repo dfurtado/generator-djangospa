@@ -17,6 +17,7 @@ from django.contrib import admin
 <% if (includeLoginPage == true) { %>
 from <%= appName %>.forms import AuthenticationForm
 from <%= appName %> import views
+from django.contrib.auth.views import login, logout
 <% } %>
 
 urlpatterns = [
@@ -26,14 +27,13 @@ urlpatterns = [
 ]
 
 <% if (includeLoginPage == true) { %>
-#urlpatterns += patterns(
-#    'django.contrib.auth',
-#    url(r'^accounts/login/$', 'views.login', {
-#        'template_name': 'login.html', 
-#        'authentication_form': AuthenticationForm
-#    }, name='login'),
-#    url(r'^accounts/logout/$', 'views.logout', {
-#        'next_page': '/'
-#    }, name='logout'),
-#)
+urlpatterns += [
+    url(r'^accounts/login/$', login, {
+        'template_name': 'login.html', 
+        'authentication_form': AuthenticationForm
+    }, name='login'),
+    url(r'^accounts/logout/$', logout, {
+        'next_page': '/'
+    }, name='logout'),
+]
 <% } %>
