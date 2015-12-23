@@ -5,7 +5,6 @@ from django.template import RequestContext, loader
 from <%= appName %>.models import Sample
 from <%= appName %>.models import Page, Item
 from <%= appName %>.serializers import SampleSerializer, PageSerializer, ItemSerializer, UserSerializer
-from rest_framework import generics, permissions
 from <%= appName %>.permissions import IsOwnerOrReadOnly
 
 from rest_framework import generics, permissions, renderers, viewsets

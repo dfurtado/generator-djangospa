@@ -26,8 +26,8 @@ class ItemSerializer(serializers.HyperlinkedModelSerializer):
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     sample = serializers.HyperlinkedRelatedField(many=True, view_name='sample-detail', read_only=True)
     page = serializers.HyperlinkedRelatedField(many=True, view_name='page-detail', read_only=True)
-    item = serializers.HyperlinkedRelatedField(many=True, view_name='item-detail', read_only=True)
+    items = serializers.HyperlinkedRelatedField(many=True, view_name='item-detail', read_only=True)
 
     class Meta:
         model = User
-        fields = ('url', 'username', 'sample', 'page', 'item')
+        fields = ('url', 'username', 'sample', 'page', 'items')
