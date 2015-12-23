@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from <%= appName %>.models import Sample
-from <%= appName %>.models import Page, Item
+from <%= appName %>.models import Sample, Page, Item
 
 class SampleSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
