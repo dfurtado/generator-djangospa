@@ -43,7 +43,7 @@ Generator.prototype.PromptUser = function() {
         name    : 'appname',
         message : 'Initial application name:',
         default : 'main',
-                  required: true
+        required: true
     }, {
         type    : 'confirm',
         name    : 'includeloginpage',
@@ -55,21 +55,21 @@ Generator.prototype.PromptUser = function() {
         message : 'Which django version you will be using:',
         choices : ['1.8.x', '1.9'],
         default : '1.8.x',
-                  required: true
+        required: true
     }, {
         type    : 'list',
         name    : 'sitetheme',
         message : 'Which theme do you want to use:',
         choices : ['Light theme', 'Dark theme'],
         default : 'Light theme',
-                  required: true
+        required: true
     },
     {
         type    : 'input',
         name    : 'projectlicense',
         message : 'License:',
         default : 'MIT',
-                  required: true
+        required: true
     }], function (answers) {
 
         this.projectName = answers.projectname;
@@ -78,7 +78,7 @@ Generator.prototype.PromptUser = function() {
         this.includeLoginPage = answers.includeloginpage;
         this.projectLicense = answers.projectlicense;
         this.destinationRoot(path.join(this.destinationRoot(), "/" + this.projectName))
-            this.projectTheme = "_" + answers.sitetheme.replace(' ', '').toLowerCase();
+        this.projectTheme = "_" + answers.sitetheme.replace(' ', '').toLowerCase();
         this.isDjango1_9 = answers.djangoVersion === "1.9";
 
         done();      	
