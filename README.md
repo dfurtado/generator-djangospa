@@ -73,7 +73,7 @@ The generator will download all the project dependencies and run gulp to copy fi
 $ cd <name_of_your_project>
 $ python manage.py migrate  (add --run-syncdb for django >=1.9)
 $ python manage.py createsuperuser
-$ python manage.py loaddata initdata.json
+$ python manage.py loaddata fixtures/initdata.json
 ```
 
 

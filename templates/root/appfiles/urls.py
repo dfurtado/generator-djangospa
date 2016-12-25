@@ -1,9 +1,9 @@
 
-from django.conf.urls import include, url, patterns
+from django.conf.urls import include, url
 from django.contrib import admin
+from <%= appName %> import views
 <% if (includeLoginPage == true) { %>
 from <%= appName %>.forms import AuthenticationForm
-from <%= appName %> import views
 from django.contrib.auth.views import login, logout
 <% } %>
 

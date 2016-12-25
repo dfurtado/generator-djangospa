@@ -69,7 +69,7 @@ DATABASES = {
     }
 }
 
-<% if (isDjango1_9) { %>
+<% if (isDjango19orGreater) { %>
 
 MIGRATION_MODULES = {
     '<%= appName %>': '<%= appName %>.db_migrations'
@@ -124,5 +124,5 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]    
+    ]
 }

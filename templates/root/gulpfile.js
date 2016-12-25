@@ -6,21 +6,21 @@ var gulp = require('gulp'),
 var paths = {
 
 	jslibs: [
-		'bower_components/angular/angular.min.js',
-		'bower_components/angular-resource/angular-resource.min.js',
-        'bower_components/angular-route/angular-route.min.js',
-        'bower_components/bootstrap/dist/js/bootstrap.min.js',
-        'bower_components/jquery/dist/jquery.min.js'
+		'node_modules/angular/angular.min.js',
+		'node_modules/angular-resource/angular-resource.min.js',
+        'node_modules/angular-route/angular-route.min.js',
+        'node_modules/bootstrap/dist/js/bootstrap.min.js',
+        'node_modules/jquery/dist/jquery.min.js'
 	],
 
 	styles: [
-		'bower_components/bootstrap/dist/css/bootstrap.min.css'
+		'node_modules/bootstrap/dist/css/bootstrap.min.css'
 	],
 
 	fonts: [
-		'bower_components/bootstrap/fonts/**/*'
+		'node_modules/bootstrap/fonts/**/*'
 	],
-	
+
 	dest: {
 		scripts:   path.join(__dirname, 'static', 'scripts'),
 		styles:    path.join(__dirname, 'static', 'styles')

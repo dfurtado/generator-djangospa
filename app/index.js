@@ -9,7 +9,7 @@ var Generator = module.exports = generators.Base.extend({
 
     constructor: function () {
 
-        generators.Base.apply(this, arguments);    	
+        generators.Base.apply(this, arguments);
 
         this.sourceRoot(path.join(__dirname, '../templates/root'));
 
@@ -53,8 +53,8 @@ Generator.prototype.PromptUser = function() {
         type    : 'list',
         name    : 'djangoVersion',
         message : 'Which django version you will be using:',
-        choices : ['1.8.x', '1.9'],
-        default : '1.8.x',
+        choices : ['1.8.x', '1.9 or greater'],
+        default : '1.9 or greater',
         required: true
     }, {
         type    : 'list',
@@ -79,9 +79,9 @@ Generator.prototype.PromptUser = function() {
         this.projectLicense = answers.projectlicense;
         this.destinationRoot(path.join(this.destinationRoot(), "/" + this.projectName))
         this.projectTheme = "_" + answers.sitetheme.replace(' ', '').toLowerCase();
-        this.isDjango1_9 = answers.djangoVersion === "1.9";
+        this.isDjango19orGreater = answers.djangoVersion === "1.9 or greater";
 
-        done();      	
+        done();
 
     }.bind(this));
 
@@ -102,7 +102,7 @@ Generator.prototype.copyFiles = function() {
         includeLoginPage: this.includeLoginPage,
         secret_key: this.secret_key,
         projectTheme: this.projectTheme,
-        isDjango1_9: this.isDjango1_9
+        isDjango19orGreater: this.isDjango19orGreater
     };
 
     // copy static folder, it is where all the javascript, css, fonts
@@ -136,7 +136,7 @@ Generator.prototype.copyFiles = function() {
                 path.join(this.destinationRoot(), "/templates/login.html"));
 
         this.copy(
-                path.join(this.sourceRoot(), "/templates/_loginpartial.html"),		
+                path.join(this.sourceRoot(), "/templates/_loginpartial.html"),
                 path.join(this.destinationRoot(), "/templates/_loginpartial.html"));
     }
 
@@ -226,7 +226,7 @@ Generator.prototype.copyFiles = function() {
 
     this.copy(
             path.join(this.sourceRoot(), "/appfiles/wsgi.py"),
-            destAppRoot + "/wsgi.py");	
+            destAppRoot + "/wsgi.py");
 
     this.template(
             path.join(this.sourceRoot(), "/appfiles/urls.py"),
@@ -260,11 +260,6 @@ Generator.prototype.packageFiles = function() {
     };
 
     this.template(
-            path.join(this.sourceRoot(), "/_bower.json"),
-            path.join(dest, "/bower.json"),
-            templateModel);
-
-    this.template(
             path.join(this.sourceRoot(), "/_package.json"),
             path.join(dest, "/package.json"),
             templateModel);
@@ -273,8 +268,8 @@ Generator.prototype.packageFiles = function() {
 Generator.prototype.install = function() {
 
     this.installDependencies({
-        bower: true,
         npm: true,
+        bower: false,
         callback: function() {
             this.spawnCommand('gulp');
         }.bind(this)

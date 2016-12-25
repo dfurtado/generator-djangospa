@@ -64,8 +64,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = UserSerializer
 
 def index(request):
-    context = RequestContext({})
     return render(request, 
         '<%= appName %>/index.html', 
-        context_instance = RequestContext(request, {})
+        {'context_instance': RequestContext(request, {})}
     )
