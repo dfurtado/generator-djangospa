@@ -22,7 +22,7 @@ $ . myenv/bin/activate
 Install Requirements:
 
 ```
-$ pip install "django>=1.8", djangorestframework
+$ pip install -r requirements.txt
 ```
 
 Install the django single page app generator

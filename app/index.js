@@ -221,6 +221,10 @@ Generator.prototype.copyFiles = function() {
             path.join(this.destinationRoot(), "/gulpfile.js"));
 
     this.copy(
+            path.join(this.sourceRoot(), "/requirements.txt"),
+            path.join(this.destinationRoot(), "/requirements.txt"));
+
+    this.copy(
             path.join(this.sourceRoot(), "/appfiles/__init__.py"),
             destAppRoot + "/__init__.py");
 
