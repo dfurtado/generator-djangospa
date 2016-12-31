@@ -17,18 +17,34 @@
     "email": "daniel@dfurtado.com",
     "url": "https://github.com/dfurtado"
   },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/dfurtado/generator-djangospa.git"
   },
   "engines": {
-    "node": ">=0.8.0",
+    "node": ">=6.0.0",
     "npm": ">=1.2.10"
   },
   "license": "MIT",
   "dependencies": {
-    "randomstring": "^1.1.2",
-    "yeoman-generator": "^0.21.1",
-    "yosay": "^1.0.5"
+    "randomstring": "^1.1.5",
+    "yeoman-generator": "^1.0.1",
+    "yosay": "^1.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.1.1",
+    "eslint-config-xo-space": "^0.15.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-nsp": "^2.1.0"
+  },
+  "eslintConfig": {
+    "extends": "xo-space"
   }
 }
