@@ -3,7 +3,8 @@
 var Generator = require('yeoman-generator'),
     path = require('path'),
     yosay = require('yosay'),
-    randomstring = require('randomstring');
+    randomstring = require('randomstring'),
+    config = require('./config');
 
 module.exports = class extends Generator {
 
@@ -12,55 +13,26 @@ module.exports = class extends Generator {
 
         this.sourceRoot(path.join(__dirname, 'templates/root'));
         this.secret_key = randomstring.generate(50);
+
+        this.installdependencies_settings = Object.assign({}, config.dependencies, {
+            callback: () => this.spawnCommand('gulp')
+        });
     }
 
     prompting() {
 
         this.log(yosay("Welcome to the (awesome) single page application generator for Django."));
 
-        return this.prompt([{
-            type    : 'input',
-            name    : 'projectname',
-            message : 'Your project name:',
-            required: true
-        }, {
-            type    : 'input',
-            name    : 'description',
-            message : 'Project description:',
-            required: false
-        }, {
-            type    : 'input',
-            name    : 'appname',
-            message : 'Initial application name:',
-            default : 'main',
-            required: true
-        }, {
-            type    : 'confirm',
-            name    : 'includeloginpage',
-            message : 'Include login page?',
-            default : true
-        }, {
-            type    : 'list',
-            name    : 'djangoVersion',
-            message : 'Which django version you will be using:',
-            choices : ['1.8.x', '1.9 or greater'],
-            default : '1.9 or greater',
-            required: true
-        }, {
-            type    : 'list',
-            name    : 'sitetheme',
-            message : 'Which theme do you want to use:',
-            choices : ['Light theme', 'Dark theme'],
-            default : 'Light theme',
-            required: true
-        }, {
-            type    : 'input',
-            name    : 'projectlicense',
-            message : 'License:',
-            default : 'MIT',
-            required: true
-        }]).then((answers) => {
-
+        return this.prompt([
+            config.prompt.projectname,
+            config.prompt.description,
+            config.prompt.appname,
+            config.prompt.includeloginpage,
+            config.prompt.djangoVersion,
+            config.prompt.sitetheme,
+            config.prompt.depmanager,
+            config.prompt.projectlicense,
+        ]).then((answers) => {
             this.projectName = answers.projectname;
             this.projectDescription = answers.description || "";
             this.appName = answers.appname;
@@ -68,13 +40,14 @@ module.exports = class extends Generator {
             this.projectLicense = answers.projectlicense;
             this.destinationRoot(path.join(this.destinationRoot(), `/${this.projectName}`))
             this.projectTheme = "_" + answers.sitetheme.replace(' ', '').toLowerCase();
+            this.depmanager = answers.depmanager;
             this.isDjango19orGreater = answers.djangoVersion === "1.9 or greater";
-
         });
 
     }
 
     copyFiles() {
+
         // setup source and destination folder.
         var dest = this.destinationRoot(),
         src = this.sourceRoot(),
@@ -142,7 +115,7 @@ module.exports = class extends Generator {
                 path.join(this.destinationRoot(), `/${this.appName}/tests.py`));
 
         if(this.isDjango19orGreater) {
-            this.copyTpl(
+            this.fs.copyTpl(
                     path.join(this.sourceRoot(), "/main/apps.py"),
                     path.join(this.destinationRoot(), `/${this.appName}/apps.py`),
                     templateModel);
@@ -247,12 +220,10 @@ module.exports = class extends Generator {
     }
 
     install() {
-        this.installDependencies({
-            npm: true,
-            bower: false,
-            yarn: false,
-            callback: () => this.spawnCommand('gulp')
-        });
+        this.installdependencies_settings.npm = this.depmanager === "npm";
+        this.installdependencies_settings.yarn = this.depmanager === "yarn";
+
+        this.installDependencies(this.installdependencies_settings);
     }
 
 }
