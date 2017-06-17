@@ -19,10 +19,11 @@ Activate the environment:
 $ . myenv/bin/activate
 ```
 
-Install Requirements:
+Installing the dependencies:
 
 ```
-$ pip install -r requirements.txt
+$ pip install django
+$ pip install djangorestframework
 ```
 
 Install the django single page app generator
@@ -32,15 +33,13 @@ $ npm install generator-djangospa -g
 ```
 
 
-## Creating a new project
+### Creating a new project
 
 ```
 $ yo djangospa
 ```
-
-Enter the **project name**, **project description** and the **name of a first django app**.
-
-The generator will download all the project dependencies and run gulp to copy files over to proper locations.
+The generator will ask the name of the project, an initial app name, which version of django, theme, licensing and 
+after that it will download all the project dependencies and run gulp to copy files over to proper locations.
 
 
 ## Project folder structure
@@ -69,13 +68,25 @@ The generator will download all the project dependencies and run gulp to copy fi
 
 
 ## Initializing the site
+
+### Django 1.8.x
+
 ```
 $ cd <name_of_your_project>
-$ python manage.py migrate  (add --run-syncdb for django >=1.9)
+$ python manage.py migrate
 $ python manage.py createsuperuser
 $ python manage.py loaddata fixtures/initdata.json
 ```
 
+### Django 1.9.x or greater
+
+```
+$ cd <name_of_your_project>
+$ python manage.py makemigrations
+$ python manage.py migrate --run-syncdb
+$ python manage.py createsuperuser
+$ python manage.py loaddata fixtures/initdata.json
+```
 
 ## Starting the site
 ```
