@@ -1,4 +1,3 @@
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
@@ -26,6 +25,20 @@ INSTALLED_APPS = (
     '<%= appName %>',
 )
 
+<% if (djangoVersion = '2.0') { %>
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+<%} else { %>
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -36,6 +49,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 )
+
+<% } %>
 
 ROOT_URLCONF = '<%= projectName %>.urls'
 
@@ -69,7 +84,7 @@ DATABASES = {
     }
 }
 
-<% if (isDjango19orGreater) { %>
+<% if (djangoVersion != '1.8') { %>
 
 MIGRATION_MODULES = {
     '<%= appName %>': '<%= appName %>.db_migrations'

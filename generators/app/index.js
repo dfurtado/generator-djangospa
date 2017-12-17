@@ -41,7 +41,9 @@ module.exports = class extends Generator {
             this.destinationRoot(path.join(this.destinationRoot(), `/${this.projectName}`))
             this.projectTheme = "_" + answers.sitetheme.replace(' ', '').toLowerCase();
             this.depmanager = answers.depmanager;
-            this.isDjango19orGreater = answers.djangoVersion === "1.9 or greater";
+            this.djangoVersion = answers.djangoVersion;
+
+            this.isDjango19orGreater = (this.djangoVersion === '1.9.x' || this.djangoVersion === '2.0')
         });
 
     }
@@ -61,7 +63,7 @@ module.exports = class extends Generator {
             includeLoginPage: this.includeLoginPage,
             secret_key: this.secret_key,
             projectTheme: this.projectTheme,
-            isDjango19orGreater: this.isDjango19orGreater
+            djangoVersion: this.djangoVersion
         };
 
         this.fs.copy(
@@ -120,116 +122,116 @@ module.exports = class extends Generator {
                 path.join(this.destinationRoot(), `/${this.appName}/apps.py`),
                 templateModel);
         }
-	
+
         if(this.isDjango19orGreater) {
-	    this.fs.copy(
-		path.join(this.sourceRoot(), "/main/db_migrations/__init__.py"),
-		path.join(this.destinationRoot(), `/${this.appName}/db_migrations/__init__.py`));
-	}
-	
-	// copy the rest framework files.
-	this.fs.copy(
-	    path.join(this.sourceRoot(), "/main/permissions.py"),
-	    path.join(this.destinationRoot(), `/${this.appName}/permissions.py`));
+            this.fs.copy(
+                path.join(this.sourceRoot(), "/main/db_migrations/__init__.py"),
+                path.join(this.destinationRoot(), `/${this.appName}/db_migrations/__init__.py`));
+        }
 
-	this.fs.copy(
-	    path.join(this.sourceRoot(), "/main/serializers.py"),
-	    path.join(this.destinationRoot(), `/${this.appName}/serializers.py`));
+        // copy the rest framework files.
+        this.fs.copy(
+            path.join(this.sourceRoot(), "/main/permissions.py"),
+            path.join(this.destinationRoot(), `/${this.appName}/permissions.py`));
 
-	this.fs.copy(
-	    path.join(this.sourceRoot(), "/main/urls.py"),
-	    path.join(this.destinationRoot(), `/${this.appName}/urls.py`));
+        this.fs.copy(
+            path.join(this.sourceRoot(), "/main/serializers.py"),
+            path.join(this.destinationRoot(), `/${this.appName}/serializers.py`));
 
-	this.fs.copy(
-	    path.join(this.sourceRoot(), "/main/views.py"),
-	    path.join(this.destinationRoot(), `/${this.appName}/views.py`));
+        this.fs.copy(
+            path.join(this.sourceRoot(), "/main/urls.py"),
+            path.join(this.destinationRoot(), `/${this.appName}/urls.py`));
 
-	if(this.includeLoginPage) {
-	    this.fs.copyTpl(
-		path.join(this.sourceRoot(), "/main/forms.py"),
-		path.join(this.destinationRoot(), `/${this.appName}/forms.py`),
-		templateModel);
-	}
+        this.fs.copy(
+            path.join(this.sourceRoot(), "/main/views.py"),
+            path.join(this.destinationRoot(), `/${this.appName}/views.py`));
 
-	this.fs.copyTpl(
-	    path.join(this.sourceRoot(), "/main/views.py"),
-	    path.join(this.destinationRoot(), `/${this.appName}/views.py`),
-	    templateModel);
+        if(this.includeLoginPage) {
+            this.fs.copyTpl(
+                path.join(this.sourceRoot(), "/main/forms.py"),
+                path.join(this.destinationRoot(), `/${this.appName}/forms.py`),
+                templateModel);
+        }
 
-	this.fs.copyTpl(
-	    path.join(this.sourceRoot(), "/main/permissions.py"),
-	    path.join(this.destinationRoot(), `/${this.appName}/permissions.py`),
-	    templateModel);
+        this.fs.copyTpl(
+            path.join(this.sourceRoot(), "/main/views.py"),
+            path.join(this.destinationRoot(), `/${this.appName}/views.py`),
+            templateModel);
 
-	this.fs.copyTpl(
-	    path.join(this.sourceRoot(), "/main/serializers.py"),
-	    path.join(this.destinationRoot(), `/${this.appName}/serializers.py`),
-	    templateModel);
+        this.fs.copyTpl(
+            path.join(this.sourceRoot(), "/main/permissions.py"),
+            path.join(this.destinationRoot(), `/${this.appName}/permissions.py`),
+            templateModel);
 
-	this.fs.copyTpl(
-	    path.join(this.sourceRoot(), "/main/urls.py"),
-	    path.join(this.destinationRoot(), `/${this.appName}/urls.py`),
-	    templateModel);
+        this.fs.copyTpl(
+            path.join(this.sourceRoot(), "/main/serializers.py"),
+            path.join(this.destinationRoot(), `/${this.appName}/serializers.py`),
+            templateModel);
 
-	this.fs.copy(
-	    path.join(this.sourceRoot(), "/main/templates/main/index.html"),
-	    path.join(this.destinationRoot(), `/${this.appName}/templates/${this.appName}/index.html`));
+        this.fs.copyTpl(
+            path.join(this.sourceRoot(), "/main/urls.py"),
+            path.join(this.destinationRoot(), `/${this.appName}/urls.py`),
+            templateModel);
 
-	this.fs.copy(
-	    path.join(this.sourceRoot(), "/gulpfile.js"),
-	    path.join(this.destinationRoot(), "/gulpfile.js"));
+        this.fs.copy(
+            path.join(this.sourceRoot(), "/main/templates/main/index.html"),
+            path.join(this.destinationRoot(), `/${this.appName}/templates/${this.appName}/index.html`));
 
-	this.fs.copy(
-	    path.join(this.sourceRoot(), "/requirements.txt"),
-	    path.join(this.destinationRoot(), "/requirements.txt"));
+        this.fs.copy(
+            path.join(this.sourceRoot(), "/gulpfile.js"),
+            path.join(this.destinationRoot(), "/gulpfile.js"));
 
-	this.fs.copy(
-	    path.join(this.sourceRoot(), "/appfiles/__init__.py"),
-	    destAppRoot + "/__init__.py");
+        this.fs.copy(
+            path.join(this.sourceRoot(), "/requirements.txt"),
+            path.join(this.destinationRoot(), "/requirements.txt"));
 
-	this.fs.copy(
-	    path.join(this.sourceRoot(), "/appfiles/wsgi.py"),
-	    destAppRoot + "/wsgi.py");
+        this.fs.copy(
+            path.join(this.sourceRoot(), "/appfiles/__init__.py"),
+            destAppRoot + "/__init__.py");
 
-	this.fs.copyTpl(
-	    path.join(this.sourceRoot(), "/appfiles/urls.py"),
-	    destAppRoot + "/urls.py",
-	    templateModel);
+        this.fs.copy(
+            path.join(this.sourceRoot(), "/appfiles/wsgi.py"),
+            destAppRoot + "/wsgi.py");
 
-	this.fs.copyTpl(
-	    path.join(this.sourceRoot(), "/appfiles/_settings.py"),
-	    destAppRoot + "/settings.py",
-	    templateModel);
+        this.fs.copyTpl(
+            path.join(this.sourceRoot(), "/appfiles/urls.py"),
+            destAppRoot + "/urls.py",
+            templateModel);
 
-	this.fs.copyTpl(
-	    path.join(this.sourceRoot(), "/_manage.py"),
-	    path.join(dest, "/manage.py"),
-	    templateModel);
+        this.fs.copyTpl(
+            path.join(this.sourceRoot(), "/appfiles/_settings.py"),
+            destAppRoot + "/settings.py",
+            templateModel);
+
+        this.fs.copyTpl(
+            path.join(this.sourceRoot(), "/_manage.py"),
+            path.join(dest, "/manage.py"),
+            templateModel);
     }
 
     packageFile() {
-	const dest = this.destinationRoot(),
-	      src = this.sourceRoot(),
-	      destAppRoot = path.join(dest, "/" + this.projectName);
+        const dest = this.destinationRoot(),
+              src = this.sourceRoot(),
+              destAppRoot = path.join(dest, "/" + this.projectName);
 
-	const templateModel = {
-	    projectName: this.projectName,
-	    projectDescription: this.projectDescription,
-	    appName: this.appName,
-	    projectLicense : this.projectLicense
-	};
+        const templateModel = {
+            projectName: this.projectName,
+            projectDescription: this.projectDescription,
+            appName: this.appName,
+            projectLicense : this.projectLicense
+        };
 
-	this.fs.copyTpl(
-	    path.join(this.sourceRoot(), "/_package.json"),
-	    path.join(dest, "/package.json"),
-	    templateModel);
+        this.fs.copyTpl(
+            path.join(this.sourceRoot(), "/_package.json"),
+            path.join(dest, "/package.json"),
+            templateModel);
     }
 
     install() {
-	this.installdependencies_settings.npm = this.depmanager === "npm";
-	this.installdependencies_settings.yarn = this.depmanager === "yarn";
+        this.installdependencies_settings.npm = this.depmanager === "npm";
+        this.installdependencies_settings.yarn = this.depmanager === "yarn";
 
-	this.installDependencies(this.installdependencies_settings);
+        this.installDependencies(this.installdependencies_settings);
     }
 
 }
