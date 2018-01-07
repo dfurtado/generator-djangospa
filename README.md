@@ -19,13 +19,6 @@ Activate the environment:
 $ . myenv/bin/activate
 ```
 
-Installing the dependencies:
-
-```
-$ pip install django
-$ pip install djangorestframework
-```
-
 Install the django single page app generator
 
 ```
@@ -66,6 +59,18 @@ after that it will download all the project dependencies and run gulp to copy fi
 └── templates\
 ```
 
+## Installing the dependencies:
+
+```
+$ cd <name_of_your_project
+$ pip install -r requirements.txt
+```
+
+If you are using `pipenv` you can run:
+
+```
+$ pipenv install -r requirements
+```
 
 ## Initializing the site
 
