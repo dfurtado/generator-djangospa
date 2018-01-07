@@ -72,13 +72,19 @@ If you are using `pipenv` you can run:
 $ pipenv install -r requirements.txt
 ```
 
-## Initializing the site
-
+## Applying migrations
 ```
-$ cd <name_of_your_project>
 $ python manage.py makemigrations
 $ python manage.py migrate
+```
+
+## Creating the admin user
+```
 $ python manage.py createsuperuser
+```
+
+## Adding intial data
+```
 $ python manage.py loaddata fixtures/initdata.json
 ```
 
