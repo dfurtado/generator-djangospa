@@ -69,7 +69,7 @@ $ pip install -r requirements.txt
 If you are using `pipenv` you can run:
 
 ```
-$ pipenv install -r requirements
+$ pipenv install -r requirements.txt
 ```
 
 ## Initializing the site
