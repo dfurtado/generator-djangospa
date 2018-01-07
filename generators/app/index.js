@@ -42,7 +42,6 @@ module.exports = class extends Generator {
             this.projectTheme = "_" + answers.sitetheme.replace(' ', '').toLowerCase();
             this.depmanager = answers.depmanager;
             this.djangoVersion = answers.djangoVersion;
-
             this.isDjango19orGreater = (this.djangoVersion === '1.9.x' || this.djangoVersion === '2.0')
         });
 
@@ -181,9 +180,10 @@ module.exports = class extends Generator {
             path.join(this.sourceRoot(), "/gulpfile.js"),
             path.join(this.destinationRoot(), "/gulpfile.js"));
 
-        this.fs.copy(
+        this.fs.copyTpl(
             path.join(this.sourceRoot(), "/requirements.txt"),
-            path.join(this.destinationRoot(), "/requirements.txt"));
+            path.join(this.destinationRoot(), "/requirements.txt"),
+            templateModel);
 
         this.fs.copy(
             path.join(this.sourceRoot(), "/appfiles/__init__.py"),

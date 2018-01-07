@@ -25,7 +25,7 @@ INSTALLED_APPS = (
     '<%= appName %>',
 )
 
-<% if (djangoVersion = '2.0') { %>
+<% if (djangoVersion == '2.0') { %>
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,8 +84,6 @@ DATABASES = {
     }
 }
 
-<% if (djangoVersion != '1.8') { %>
-
 MIGRATION_MODULES = {
     '<%= appName %>': '<%= appName %>.db_migrations'
 }
@@ -106,8 +104,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-<% } %>
 
 # Internationalization
 

@@ -36,7 +36,7 @@ module.exports = {
             type    : "list",
             name    : "djangoVersion",
             message : "Which django version you will be using:",
-            choices : ["1.8.x", "1.9.x", "2.0"],
+            choices : ["1.9.x", "2.0"],
             default : "2.0",
             required: true
         },
