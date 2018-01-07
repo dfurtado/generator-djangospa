@@ -62,7 +62,7 @@ after that it will download all the project dependencies and run gulp to copy fi
 ## Installing the dependencies:
 
 ```
-$ cd <name_of_your_project
+$ cd <name_of_your_project>
 $ pip install -r requirements.txt
 ```
 
