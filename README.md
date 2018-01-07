@@ -38,7 +38,7 @@ $ npm install generator-djangospa -g
 ```
 $ yo djangospa
 ```
-The generator will ask the name of the project, an initial app name, which version of django, theme, licensing and 
+The generator will ask the name of the project, an initial app name, which version of django, theme, licensing and
 after that it will download all the project dependencies and run gulp to copy files over to proper locations.
 
 
@@ -69,21 +69,10 @@ after that it will download all the project dependencies and run gulp to copy fi
 
 ## Initializing the site
 
-### Django 1.8.x
-
-```
-$ cd <name_of_your_project>
-$ python manage.py migrate
-$ python manage.py createsuperuser
-$ python manage.py loaddata fixtures/initdata.json
-```
-
-### Django 1.9.x or greater
-
 ```
 $ cd <name_of_your_project>
 $ python manage.py makemigrations
-$ python manage.py migrate --run-syncdb
+$ python manage.py migrate
 $ python manage.py createsuperuser
 $ python manage.py loaddata fixtures/initdata.json
 ```
