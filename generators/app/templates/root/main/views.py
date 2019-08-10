@@ -9,7 +9,12 @@ from <%= appName %>.permissions import IsOwnerOrReadOnly
 
 from rest_framework import generics, permissions, renderers, viewsets
 from rest_framework.response import Response
-from rest_framework.decorators import detail_route
+
+
+try:
+    from rest_framework.decorators import detail_route as action
+except ImportError:
+    from rest_framework.decorators import action
 
 
 # Create your views here.
@@ -24,7 +29,7 @@ class SampleViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly,)
 
-    @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
+    @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
@@ -38,7 +43,7 @@ class PageViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly,)
 
-    @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
+    @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)        
 
@@ -52,7 +57,7 @@ class ItemViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly,)
 
-    @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
+    @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)        
 
