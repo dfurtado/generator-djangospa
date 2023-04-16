@@ -32,7 +32,7 @@
   "license": "MIT",
   "dependencies": {
     "randomstring": "^1.1.5",
-    "yeoman-generator": "^1.0.1",
+    "yeoman-generator": "^5.8.0",
     "yosay": "^1.2.1"
   },
   "devDependencies": {
